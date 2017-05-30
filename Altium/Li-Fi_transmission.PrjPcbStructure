@@ -1,1 +1,3 @@
-Record=TopLevelDocument|FileName=LED_Driver.SchDoc
+Record=TopLevelDocument|FileName=LiFi_transmitter.SchDoc
+Record=SheetSymbol|SourceDocument=LiFi_transmitter.SchDoc|Designator=LED_Driver|SchDesignator=LED_Driver|FileName=Envoi|SymbolType=Normal|RawFileName=Envoi|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=LiFi_transmitter.SchDoc|Designator=TIA|SchDesignator=TIA|FileName=Réception|SymbolType=Normal|RawFileName=Réception|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
