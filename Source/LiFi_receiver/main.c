@@ -101,8 +101,8 @@ int main(void)
 
 
     P2DIR &= ~BIT0;     //input pin
-    P2REN |= BIT0;      //set pull-down resistor
-    P2OUT &= ~BIT0;
+    P2REN |= BIT0;      //set pull-up resistor
+    P2OUT |= BIT0;
     P2IE |= BIT0;       //enable interrupts for pin P2.0
     P2IES &= ~BIT0;     //interrupt on rising edge
 
@@ -195,7 +195,7 @@ void verifyParity(char *packet) {
 }
 
 void transmissionEnded(char *packet) {
-    if (packet[sizeof(packet)-1] != 0) {
+    if (packet[12] != 0) {
         packet_error = 1;
     }
 }

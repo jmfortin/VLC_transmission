@@ -17,7 +17,6 @@ void acquireData();
 void createPacket(char data);
 int calculateParity(char *packet);
 void sendPacket();
-void waitForConfirmation();
 void hammingEncode(char data);
 
 //attributes
@@ -99,7 +98,7 @@ int main(void)
     UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
 
 
-    P2DIR |= BIT0;
+    P2DIR |= BIT0;              //Set output pin (P2.0)
     P2OUT |= BIT0;
 
     timer_active = 0;
@@ -113,7 +112,6 @@ int main(void)
 
         createPacket(UCA1RXBUF);
         sendPacket(packet);
-        waitForConfirmation();
 
         data_received = 0;
     }
@@ -153,6 +151,7 @@ __interrupt void TIMER0_A0_ISR(void)
         timer_active = 1;
         __bic_SR_register_on_exit(LPM0_bits);
     }
+
 }
 
 void acquireData() {
@@ -205,10 +204,6 @@ void sendPacket() {
             P2OUT |= ~(0xFE | packet[i]);
         }
     }
-}
-
-void waitForConfirmation() {
-
 }
 
 void hammingEncode(char data) {
