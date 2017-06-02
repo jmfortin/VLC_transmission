@@ -1,0 +1,743 @@
+[
+  {
+    "text": "00_EMPTYPROJECT",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/00_EMPTYPROJECT&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "ADC10_A",
+    "type": "folder",
+    "numChildren": 9,
+    "numChildrenLocal": 9,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/ADC10_A&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "ADC12_A",
+    "type": "folder",
+    "numChildren": 8,
+    "numChildrenLocal": 8,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/ADC12_A&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "AES",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/AES&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "BATTBAK",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/BATTBAK&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "COMP_B",
+    "type": "folder",
+    "numChildren": 6,
+    "numChildrenLocal": 6,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/COMP_B&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "CRC",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/CRC&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "CTSD16",
+    "type": "folder",
+    "numChildren": 5,
+    "numChildrenLocal": 5,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/CTSD16&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "DAC12_A",
+    "type": "folder",
+    "numChildren": 4,
+    "numChildrenLocal": 4,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/DAC12_A&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "DMA",
+    "type": "folder",
+    "numChildren": 4,
+    "numChildrenLocal": 4,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/DMA&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "EUSCI_A_SPI",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/EUSCI_A_SPI&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "EUSCI_A_UART",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/EUSCI_A_UART&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "EUSCI_B_I2C",
+    "type": "folder",
+    "numChildren": 10,
+    "numChildrenLocal": 10,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/EUSCI_B_I2C&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "EUSCI_B_SPI",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/EUSCI_B_SPI&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "FLASHCTL",
+    "type": "folder",
+    "numChildren": 4,
+    "numChildrenLocal": 4,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/FLASHCTL&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "GPIO",
+    "type": "folder",
+    "numChildren": 4,
+    "numChildrenLocal": 4,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/GPIO&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "LCD_B",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/LCD_B&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "LDOPWR",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/LDOPWR&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "MPY32",
+    "type": "folder",
+    "numChildren": 15,
+    "numChildrenLocal": 15,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/MPY32&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "OA",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/OA&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "PMAP",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/PMAP&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "PMM",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/PMM&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "RAM",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/RAM&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "REF",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/REF&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "RTC_A",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/RTC_A&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "RTC_B",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/RTC_B&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "RTC_C",
+    "type": "folder",
+    "numChildren": 1,
+    "numChildrenLocal": 1,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/RTC_C&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "SD24_B",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/SD24_B&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "TEC",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/TEC&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "TIMER_A",
+    "type": "folder",
+    "numChildren": 6,
+    "numChildrenLocal": 6,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/TIMER_A&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "TIMER_B",
+    "type": "folder",
+    "numChildren": 5,
+    "numChildrenLocal": 5,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/TIMER_B&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "TIMER_D",
+    "type": "folder",
+    "numChildren": 10,
+    "numChildrenLocal": 10,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/TIMER_D&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "TLV",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/TLV&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "UCS",
+    "type": "folder",
+    "numChildren": 4,
+    "numChildrenLocal": 4,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/UCS&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "USCI_A_SPI",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/USCI_A_SPI&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "USCI_A_UART",
+    "type": "folder",
+    "numChildren": 7,
+    "numChildrenLocal": 7,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/USCI_A_UART&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "USCI_B_I2C",
+    "type": "folder",
+    "numChildren": 8,
+    "numChildrenLocal": 8,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/USCI_B_I2C&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "USCI_B_SPI",
+    "type": "folder",
+    "numChildren": 2,
+    "numChildrenLocal": 2,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/USCI_B_SPI&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  },
+  {
+    "text": "WDT_A",
+    "type": "folder",
+    "numChildren": 3,
+    "numChildrenLocal": 3,
+    "children": true,
+    "allowPartialDownload": false,
+    "state": {
+      "opened": false
+    },
+    "package": "MSP430Ware",
+    "packageUId": "msp430ware__3.60.00.10",
+    "url": "/api/resources?path=Software/MSP430Ware/Libraries/Driver%20Library/MSP430F5xx_6xx/Example%20Projects&package=msp430ware__3.60.00.10",
+    "downloadLink": "api/bundle?vid=msp430ware__3.60.00.10&download=true",
+    "makeofflineLink": "api/bundles?vids=msp430ware__3.60.00.10",
+    "removeofflineLink": "api/resources?package=msp430ware__3.60.00.10::sysbios__6.50.01.12::xdctools__3.50.01.12::tirtos_cc13xx_cc26xx__2.21.00.06::tirtos_msp43X__2.20.00.06::tirtos_tivac__2.16.00.08::tirtos_simplelink__2.13.01.09::tm4c__2.1.3.156::com.ti.SIMPLELINK_CC2640R2_SDK_BLE_EXAMPLE_PACK__1.35.00.37::com.ti.SIMPLELINK_CC2640R2_SDK__1.35.00.33::com.ti.SIMPLELINK_CC32XX_SDK__1.30.01.03::com.ti.SIMPLELINK_CC13X0_SDK__1.30.00.06::com.ti.SIMPLELINK_MSP432_SDK_WIFI_PLUGIN__1.30.00.03::com.ti.SIMPLELINK_MSP432_SDK__1.30.00.40::com.ti.SIMPLELINK_MSP432_SDK_BLUETOOTH_PLUGIN__1.10.00.42::sitara__1.02.00.00::cc3200sdk__1.1.0.0::com.ti.mmwave_training__1.0.4::c2000ware_software_package__1.00.01.00::com.ti.MMWAVE_SDK__01.00.00.05::com.ti.AWS_CC32XX__1.00.00.12::com.ti.SAIL__1.00.00.09::com.ti.SIMPLELINK_ACADEMY_CC32XXSDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC13X0SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_MSP432SDK__1.12.01.16::com.ti.SIMPLELINK_ACADEMY_CC2640R2SDK__1.12.01.16::ccs_training__1.00.00.08::sdtoutilities__1.00.00.02::xdsdebugprobes__1.00.00.03::msp432_devices__1.00.00.00::msp432_devtools__1.00.00.00::cc26x0_devices__1.00.00.0002::cc26xx_devtools__1.00.00.0001::cc13x0_devices__1.00.00.0002::cc13xx_devtools__1.00.00.0002::cc32xx_devices__1.00.00.00::cc32xx_devices__1.00.00.00::cc32xx_devtools__1.00.00.00::cc32xx_devtools__1.00.00.00::mspdevtools__1.00.00.40::com.ti.mmwave_devices__1.0.0::com.ti.mmwave_devtools__0.2.0::c2000ware_devices_package__1.00.01.00::msp430_devices__1.00.00.00::msp430_devtools__1.00.00.00::sitara_devices__1.00.00.00::sitara_devtools__1.00.00.00::tivac_devices__1.00.00.00::tivac_devtools__1.00.00.00&path=Software/MSP430Ware/Libraries/Driver Library/MSP430F5xx_6xx/Example Projects/WDT_A&removeoffline=true",
+    "packageOrder": 47,
+    "offline": "true"
+  }
+]
