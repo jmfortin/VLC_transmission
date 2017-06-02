@@ -212,18 +212,75 @@ void retrieveData(char *packet) {
     temp += packet[12] << 7;
 }
 
-void hammingDecode(char *packet) {
 
-    //Simpler and more efficient to hardcode
-    error_p1 = packet[1] ^ packet[3] ^ packet[5] ^ packet[7] ^ packet[9] ^ packet[11];
-    error_p2 = packet[2] ^ packet[3] ^ packet[6] ^ packet[7] ^ packet[10] ^ packet[11];
-    error_p3 = packet[4] ^ packet[5] ^ packet[6] ^ packet[7] ^ packet[12];
-    error_p4 = packet[8] ^ packet[9] ^ packet[10] ^ packet[11] ^ packet[12];
+typedef uint8_t crc;
 
-    unsigned int wrong_bit = error_p1 * 1 + error_p2 * 2 + error_p3 * 4 + error_p4 * 8;
+#define WIDTH  (8 * sizeof(crc))
+#define TOPBIT (1 << (WIDTH - 1))
+#define POLYNOMIAL 0xD8  /* 11011 followed by 0's */
 
-    if (wrong_bit != 0) {
-        packet[wrong_bit] ^= 1;
+crc crcTable[256];
+
+void crcInit(void)
+{
+    crc remainder;
+
+    /*
+     * Compute the remainder of each possible dividend.
+     */
+    for (int dividend = 0; dividend < 256; ++dividend)
+    {
+        /*
+         * Start with the dividend followed by zeros.
+         */
+        remainder = dividend << (WIDTH - 8);
+
+        /*
+         * Perform modulo-2 division, a bit at a time.
+         */
+        for (uint8_t bit = 8; bit > 0; --bit)
+        {
+            /*
+             * Try to divide the current data bit.
+             */
+            if (remainder & TOPBIT)
+            {
+                remainder = (remainder << 1) ^ POLYNOMIAL;
+            }
+            else
+            {
+                remainder = (remainder << 1);
+            }
+        }
+
+        /*
+         * Store the result into the table.
+         */
+        crcTable[dividend] = remainder;
     }
-}
 
+}   /* crcInit() */
+
+
+
+uint8_t crcFast(uint8_t const message[], int nBytes)
+{
+    uint8_t data;
+    crc remainder = 0;
+
+
+    /*
+     * Divide the message by the polynomial, a byte at a time.
+     */
+    for (int byte = 0; byte < nBytes; ++byte)
+    {
+        data = message[byte] ^ (remainder >> (WIDTH - 8));
+        remainder = crcTable[data] ^ (remainder << 8);
+    }
+
+    /*
+     * The final remainder is the CRC.
+     */
+    return (remainder);
+
+}   /* crcFast() */
