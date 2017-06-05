@@ -2,6 +2,7 @@
 
 // ----------- SELECT BUFFER SIZE ---------------------------
 #define BUFFER_SIZE    32          // (bytes)
+#define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
 #define START_BIT      1
@@ -11,21 +12,27 @@
 #define PARITY         0           // 0 = even, 1 = odd
 // ----------------------------------------------------------
 
+typedef char crc;
+
+#define WIDTH  (8 * sizeof(crc))
+#define TOPBIT (1 << (WIDTH - 1))
+#define POLYNOMIAL 0x31  /* 11011 followed by 0's */
+
+crc crcTable[256];
 
 //functions
 void receivePacket();
-void verifyParity(char *packet);
-void transmissionEnded(char *packet);
-void retrieveData(char *packet);
-void hammingDecode(char *packet);
+void retrieveData();
+void crcInit();
+int verifyCRC(char const message[], crc check);
+void sendToComputer();
 
 //attributes
-char temp;
+volatile unsigned char temp;
 volatile unsigned int i = 0;
 char buffer[BUFFER_SIZE];
-char packet[14];    //start bit + data bits + parity bits + stop bit(s)
-char data[8];
-volatile unsigned int error_p1, error_p2, error_p3, error_p4;
+char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
+crc checksum;
 volatile unsigned int receiving, timer_active;
 volatile unsigned int packet_error;
 
@@ -110,27 +117,21 @@ int main(void)
     timer_active = 0;
     packet_error = 0;
 
-    error_p1 = 0;
-    error_p2 = 0;
-    error_p3 = 0;
-    error_p4 = 0;
+    crcInit();
 
     __enable_interrupt();
 
     while(1) {
         if((P2IN & BIT0) == 1) {
-            i = 0;
+
             receivePacket();
+            retrieveData();
 
             if (packet_error == 0) {
-                retrieveData(packet);
-                UCA1TXBUF = temp;
+                sendToComputer();
             }
-            else {
-                __no_operation();
-            }
+
             packet_error = 0;
-            receiving = 0;
         }
     }
 
@@ -173,32 +174,60 @@ __interrupt void TIMER0_A0_ISR(void)
 void receivePacket() {
 
     receiving = 1;
-    while (i < sizeof(packet)) {
-        while(timer_active == 0);
+
+    i = 0;
+    while (i < PACKET_SIZE) {
+        while(timer_active == 0);       //always wait for the right time to acquire data
         timer_active = 0;
-        packet[i] = (P2IN & BIT0);
+        packet[i] = P2IN & BIT0;
         i++;
     }
 
-    hammingDecode(packet);
-    transmissionEnded(packet);
+
+    /*
+    //Receive start bit
+    while(timer_active == 0);           //always wait for the right time to acquire data
+    if(P2IN & BIT0 != START_BIT) {
+        packet_error = 1;
+        return;
+    }
+
+    //Receive data
+    i = 0;
+    while (i < BUFFER_SIZE*8) {
+        while(timer_active == 0);       //always wait for the right time to acquire data
+        timer_active = 0;
+        temp |= (P2IN & BIT0) << i % 8;
+        if (i != 0 && i % 8 == 0) {
+            buffer[(int)(i / 8)] = temp;
+        }
+        i++;
+    }
+
+    //Receive CRC
+    i = 0;
+    while (i < sizeof(crc) * 8) {
+        while(timer_active == 0);       //always wait for the right time to acquire data
+        timer_active = 0;
+        checksum |= (P2IN & BIT0) << i % (sizeof(crc) * 8);
+        i++;
+    }
+
+    if(!verifyCRC(buffer, checksum)){
+        packet_error = 1;
+        return;
+    }
+
+    //Receive stop bit
+    while(timer_active == 0);       //always wait for the right time to acquire data
+    if(P2IN & BIT0 != STOP_BIT) {
+        packet_error = 1;
+        return;
+    }*/
+
+    receiving = 0;
 }
 
-void verifyParity(char *packet) {
-    int sum = 0;
-    for (i = 1; i < 9; i++) {
-        sum += packet[i];
-    }
-    if (((sum % 2) + PARITY) % 2 != packet[9]) {
-        packet_error = 1;
-    }
-}
-
-void transmissionEnded(char *packet) {
-    if (packet[12] != 0) {
-        packet_error = 1;
-    }
-}
 
 void retrieveData(char *packet) {
     temp = 0;
@@ -213,14 +242,6 @@ void retrieveData(char *packet) {
 }
 
 
-typedef uint8_t crc;
-
-#define WIDTH  (8 * sizeof(crc))
-#define TOPBIT (1 << (WIDTH - 1))
-#define POLYNOMIAL 0xD8  /* 11011 followed by 0's */
-
-crc crcTable[256];
-
 void crcInit(void)
 {
     crc remainder;
@@ -228,7 +249,8 @@ void crcInit(void)
     /*
      * Compute the remainder of each possible dividend.
      */
-    for (int dividend = 0; dividend < 256; ++dividend)
+    int dividend;
+    for (dividend = 0; dividend < 256; ++dividend)
     {
         /*
          * Start with the dividend followed by zeros.
@@ -238,7 +260,8 @@ void crcInit(void)
         /*
          * Perform modulo-2 division, a bit at a time.
          */
-        for (uint8_t bit = 8; bit > 0; --bit)
+        int bit;
+        for (bit = 8; bit > 0; --bit)
         {
             /*
              * Try to divide the current data bit.
@@ -263,17 +286,17 @@ void crcInit(void)
 
 
 
-uint8_t crcFast(uint8_t const message[], int nBytes)
+int verifyCRC(char const message[], crc check)
 {
-    uint8_t data;
-    crc remainder = 0;
+    char data;
+    crc remainder = sizeof(crc);
 
 
     /*
      * Divide the message by the polynomial, a byte at a time.
      */
-    for (int byte = 0; byte < nBytes; ++byte)
-    {
+    int byte;
+    for (byte = 0; byte < BUFFER_SIZE; ++byte) {
         data = message[byte] ^ (remainder >> (WIDTH - 8));
         remainder = crcTable[data] ^ (remainder << 8);
     }
@@ -281,6 +304,15 @@ uint8_t crcFast(uint8_t const message[], int nBytes)
     /*
      * The final remainder is the CRC.
      */
-    return (remainder);
+    return (remainder == check);
 
 }   /* crcFast() */
+
+
+void sendToComputer() {
+
+    for (i = 0; i < BUFFER_SIZE; i++) {
+        while(!(UCA1IFG & UCTXIFG));
+        UCA1TXBUF = buffer[i];
+    }
+}

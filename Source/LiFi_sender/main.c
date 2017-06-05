@@ -2,6 +2,7 @@
 
 // ----------- SELECT BUFFER SIZE --------------------------
 #define BUFFER_SIZE    32          // (bytes)
+#define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
 #define START_BIT      1
@@ -15,7 +16,7 @@ typedef char crc;
 
 #define WIDTH  (8 * sizeof(crc))
 #define TOPBIT (1 << (WIDTH - 1))
-#define POLYNOMIAL 0xD8  /* 11011 followed by 0's */
+#define POLYNOMIAL 0x31  /* 11011 followed by 0's */
 
 crc crcTable[256];
 
@@ -23,7 +24,6 @@ crc crcTable[256];
 //functions
 void acquireData();
 void createPacket(char *buffer);
-int calculateParity(char *packet);
 void sendPacket();
 void crcInit(void);
 crc crcFast(char const message[], int nBytes);
@@ -36,7 +36,8 @@ char buffer[BUFFER_SIZE] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
                             0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
                             0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
                             0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F};
-char packet[1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1];    //start bit + data bits + crc + stop bit
+int buffer_pos;
+char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
 volatile unsigned int data_received, timer_active;
 
 //interruption flags
@@ -111,13 +112,13 @@ int main(void)
 
 
     P2DIR |= BIT0;              //Set output pin (P2.0)
-    P2OUT |= BIT0;
+    P2OUT &= ~BIT0;
 
     timer_active = 0;
     data_received = 0;
+    buffer_pos = 0;
 
     crcInit();
-    createPacket(buffer);
 
     while(1) {
 
@@ -128,6 +129,7 @@ int main(void)
         sendPacket(packet);
 
         data_received = 0;
+        buffer_pos = 0;
     }
 
     return 0;
@@ -145,6 +147,14 @@ __interrupt void USCI_A1_ISR(void)
     case 0 : break;                 // Vector 0 - no interrupt
     case 2 :                        // Vector 2 - RXIFG9
         while(!(UCA1IFG & UCTXIFG));
+
+        buffer[buffer_pos] = UCA1RXBUF;
+        buffer_pos++;
+
+        if(buffer_pos == BUFFER_SIZE) {
+            __bic_SR_register_on_exit(LPM0_bits);
+        }
+
         break;
     case 4 : break;                 // Vector 4 - TXIFG
     default : break;
@@ -163,7 +173,6 @@ __interrupt void TIMER0_A0_ISR(void)
 
     if (data_received == 1) {
         timer_active = 1;
-        __bic_SR_register_on_exit(LPM0_bits);
     }
 
 }
@@ -182,33 +191,19 @@ void createPacket(char *buffer) {
     for (i = 0; i < sizeof(crc) * 8; i++) {
         packet[i + BUFFER_SIZE*8 + 1] = (checksum >> i) & 1;
     }
-    packet[BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1] = STOP_BIT;
-}
-
-int calculateParity(char *packet) {
-
-    int sum = 0;
-    for (i = sizeof(packet)-2; i > 0; i--) {
-        sum += packet[i-1];
-    }
-    if (sum % 2 == 0) {
-        return PARITY;
-    }
-    else {
-        return PARITY ^ 1;
-    }
+    packet[PACKET_SIZE - 1] = STOP_BIT;
 }
 
 void sendPacket() {
 
-    for (i = 0; i < sizeof(packet); i++) {
+    for (i = 0; i < PACKET_SIZE; i++) {
         while(timer_active == 0);       //wait for timer
         timer_active = 0;
         if (packet[i] == 1) {
-            P2OUT &= ~(0xFE | packet[i]);
+            P2OUT &= ~BIT0;
         }
         else {
-            P2OUT |= ~(0xFE | packet[i]);
+            P2OUT |= BIT0;
         }
     }
 }
@@ -261,7 +256,7 @@ void crcInit(void)
 crc crcFast(char const message[], int nBytes)
 {
     char data;
-    crc remainder = 0;
+    crc remainder = sizeof(crc);
 
 
     /*

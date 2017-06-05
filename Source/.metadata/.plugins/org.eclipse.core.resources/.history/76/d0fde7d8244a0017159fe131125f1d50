@@ -1,0 +1,278 @@
+#include <msp430.h>
+
+// ----------- SELECT BUFFER SIZE --------------------------
+#define BUFFER_SIZE    32          // (bytes)
+#define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
+// ----------------------------------------------------------
+// ----------- SELECT START/STOP BITS -----------------------
+#define START_BIT      1
+#define STOP_BIT       0
+// ----------------------------------------------------------
+// ----------- PARITY BIT -----------------------------------
+#define PARITY         0           // 0 = even, 1 = odd
+// ----------------------------------------------------------
+
+typedef char crc;
+
+#define WIDTH  (8 * sizeof(crc))
+#define TOPBIT (1 << (WIDTH - 1))
+#define POLYNOMIAL 0x31  /* 11011 followed by 0's */
+
+crc crcTable[256];
+
+
+//functions
+void acquireData();
+void createPacket(char *buffer);
+void sendPacket();
+void crcInit(void);
+crc crcFast(char const message[], int nBytes);
+
+
+//attributes
+char temp;
+volatile unsigned int i = 0;
+char buffer[BUFFER_SIZE] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+                            0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
+                            0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
+                            0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F};
+int buffer_pos;
+char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
+volatile unsigned int data_received, timer_active;
+
+//interruption flags
+int USCI_A1_INT = 0;
+
+/*
+ * 1. Stop the Watchdog Timer
+ * 2. Setup the Oscillators and clocks and check for their correct operation using the appropriate handlers
+ * 3. Setup The I/O pins
+ * 4. Setup the rest of the modules to be used
+ * 5. start the application specific code
+ */
+
+int main(void)
+{
+    WDTCTL = WDTPW+WDTHOLD;                   // Stop watchdog timer
+
+    // SET CLOCK
+    UCSCTL3 = SELREF_2;                       // Set DCO FLL reference = REFO
+    UCSCTL4 |= SELA_2;                        // Set ACLK = REFO
+    UCSCTL0 = 0x0000;                         // Set lowest possible DCOx, MODx
+
+    do
+    {
+        UCSCTL7 &= ~(XT2OFFG + XT1LFOFFG + DCOFFG);
+        SFRIFG1 &= ~OFIFG;
+    } while(SFRIFG1 & OFIFG);
+
+    __bis_SR_register(SCG0);                  // Disable the FLL control loop
+
+    UCSCTL1 = DCORSEL_5;                      // Select DCO range 16MHz operation
+    UCSCTL2 |= 249;                           // Set DCO Multiplier for 8MHz
+                                              // (N + 1) * FLLRef = Fdco
+                                              // (249 + 1) * 32768 = 8MHz
+
+    __bic_SR_register(SCG0);                  // Enable the FLL control loop
+
+    __delay_cycles(250000);                   // Settling time for the DCO
+
+    P7DIR |= BIT7;
+    P7SEL |= BIT7;                            // To see the clock output on P7.7
+
+    // SET A/D CONVERTER AND REF
+    P6DIR &= ~BIT0;                         // Set P6.0 as input
+    P6SEL |= BIT0;                          // Activate alternate function
+    REFCTL0 &= ~REFMSTR;
+    ADC12CTL0 = ADC12ON | ADC12SHT0_4 | ADC12REFON | ADC12REF2_5V;
+    ADC12CTL1 = ADC12SHP;
+    ADC12MCTL0 = ADC12SREF_1 + ADC12INCH_0; // V+=Vref+  and  V-=AVss,
+
+
+    for (i = 0; i < 0x30; i++);             // Delay for reference start-up
+
+    ADC12CTL0 |= ADC12ENC;                  // Enable conversions
+
+
+    // SET TIMER
+    TA0CCTL0 = CCIE;                        // CCR0 interrupt enabled
+    TA0CCR0 = 1600;                         // Sample 5000 times per second
+    TA0CTL = TASSEL_2 + MC_1 + TACLR;
+
+
+    // SET UART
+    P4SEL |= BIT4 + BIT5;               // P4.4 = TX  and  P4.5 = RX
+    UCA1CTL1 |= UCSWRST;                // Reset the UART state machine
+    UCA1CTL1 |= UCSSEL_2;               // SMCLK
+    UCA1BR0 = 69;
+    UCA1BR1 = 0;                        // Set baud rate to 115200 (User's guide)
+    UCA1MCTL |= UCBRS_4 + UCBRF_0;      // Select the correct modulation
+    UCA1CTL1 &= ~UCSWRST;               // Start the UART state machine
+    UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
+
+
+    P2DIR |= BIT0;              //Set output pin (P2.0)
+    P2OUT |= BIT0;
+
+    timer_active = 0;
+    data_received = 0;
+    buffer_pos = 0;
+
+    crcInit();
+
+    while(1) {
+
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+        __no_operation();                         // For debugger
+
+        createPacket(buffer);
+        sendPacket(packet);
+
+        data_received = 0;
+        buffer_pos = 0;
+    }
+
+    return 0;
+}
+
+
+// Character received
+#pragma vector=USCI_A1_VECTOR
+__interrupt void USCI_A1_ISR(void)
+{
+    data_received = 1;
+
+    switch(__even_in_range(UCA1IV, 4))
+    {
+    case 0 : break;                 // Vector 0 - no interrupt
+    case 2 :                        // Vector 2 - RXIFG9
+        while(!(UCA1IFG & UCTXIFG));
+
+        buffer[buffer_pos] = UCA1RXBUF;
+        buffer_pos++;
+
+        if(buffer_pos == BUFFER_SIZE) {
+            __bic_SR_register_on_exit(LPM0_bits);
+        }
+
+        break;
+    case 4 : break;                 // Vector 4 - TXIFG
+    default : break;
+    }
+}
+
+// Timer0 A0 interrupt service routine
+#pragma vector=TIMER0_A0_VECTOR
+__interrupt void TIMER0_A0_ISR(void)
+{
+    /*
+    //Data recuperation from the Analog/Digital Converter
+    ADC12CTL0 |= ADC12SC;                   // Start conversion
+    while(!(ADC12IFG & BIT0));              // Wait for conversion completion
+    temp = ADC12MEM0;*/
+
+    if (data_received == 1) {
+        timer_active = 1;
+    }
+
+}
+
+void acquireData() {
+    //Data will eventually come from the sensor
+}
+
+void createPacket(char *buffer) {
+
+    packet[0] = START_BIT;
+    for (i = 0; i < BUFFER_SIZE * 8; i++) {
+        packet[i+1] = (buffer[(int)(i/8)] >> i%8) & 1;
+    }
+    crc checksum = crcFast(buffer, BUFFER_SIZE);
+    for (i = 0; i < sizeof(crc) * 8; i++) {
+        packet[i + BUFFER_SIZE*8 + 1] = (checksum >> i) & 1;
+    }
+    packet[PACKET_SIZE - 1] = STOP_BIT;
+}
+
+void sendPacket() {
+
+    for (i = 0; i <  PACKET_SIZE; i++) {
+        while(timer_active == 0);       //wait for timer
+        timer_active = 0;
+        if (packet[i] == 1) {
+            P2OUT &= ~(0xFE | packet[i]);
+        }
+        else {
+            P2OUT |= ~(0xFE | packet[i]);
+        }
+    }
+}
+
+
+void crcInit(void)
+{
+    crc remainder;
+
+    /*
+     * Compute the remainder of each possible dividend.
+     */
+    int dividend;
+    for (dividend = 0; dividend < 256; ++dividend)
+    {
+        /*
+         * Start with the dividend followed by zeros.
+         */
+        remainder = dividend << (WIDTH - 8);
+
+        /*
+         * Perform modulo-2 division, a bit at a time.
+         */
+        int bit;
+        for (bit = 8; bit > 0; --bit)
+        {
+            /*
+             * Try to divide the current data bit.
+             */
+            if (remainder & TOPBIT)
+            {
+                remainder = (remainder << 1) ^ POLYNOMIAL;
+            }
+            else
+            {
+                remainder = (remainder << 1);
+            }
+        }
+
+        /*
+         * Store the result into the table.
+         */
+        crcTable[dividend] = remainder;
+    }
+
+}   /* crcInit() */
+
+
+
+crc crcFast(char const message[], int nBytes)
+{
+    char data;
+    crc remainder = sizeof(crc);
+
+
+    /*
+     * Divide the message by the polynomial, a byte at a time.
+     */
+    int byte;
+    for (byte = 0; byte < nBytes; ++byte) {
+        data = message[byte] ^ (remainder >> (WIDTH - 8));
+        remainder = crcTable[data] ^ (remainder << 8);
+    }
+
+    /*
+     * The final remainder is the CRC.
+     */
+    return (remainder);
+
+}   /* crcFast() */
+
+
