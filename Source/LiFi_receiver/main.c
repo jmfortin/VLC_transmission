@@ -1,7 +1,7 @@
 #include <msp430.h>
 
 // ----------- SELECT BUFFER SIZE ---------------------------
-#define BUFFER_SIZE    32          // (bytes)
+#define BUFFER_SIZE    1          // (bytes)
 #define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
@@ -24,17 +24,18 @@ crc crcTable[256];
 void receivePacket();
 void retrieveData();
 void crcInit();
-int verifyCRC(char const message[], crc check);
+void verifyData(char const message[]);
 void sendToComputer();
+void resetPacket();
 
 //attributes
 volatile unsigned char temp;
-volatile unsigned int i = 0;
+volatile unsigned long i = 0;
 char buffer[BUFFER_SIZE];
 char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
 crc checksum;
 volatile unsigned int receiving, timer_active;
-volatile unsigned int packet_error;
+volatile unsigned int packet_error, ready;
 
 //interruption flags
 int USCI_A1_INT = 0;
@@ -119,20 +120,26 @@ int main(void)
 
     crcInit();
 
+    ready = 1;
+
     __enable_interrupt();
 
     while(1) {
-        if((P2IN & BIT0) == 1) {
 
-            receivePacket();
-            retrieveData();
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+        __no_operation();                         // For debugger
 
-            if (packet_error == 0) {
-                sendToComputer();
-            }
+        receivePacket();
+        retrieveData();
+        verifyData(buffer);
 
-            packet_error = 0;
+        if (packet_error == 0) {
+            sendToComputer();
         }
+
+
+        packet_error = 0;
+        ready = 1;
     }
 
     return 0;
@@ -142,8 +149,13 @@ int main(void)
 #pragma vector=PORT2_VECTOR
 __interrupt void Port_2(void)
 {
+    if (ready == 1) {
+        TA0R = 800;
+        ready = 0;
+        __bic_SR_register_on_exit(LPM0_bits);
+    }
+
     P2IFG &= (~BIT0); // P2.0 IFG clear
-    TA0R = 800;
 }
 
 // Character received
@@ -157,7 +169,8 @@ __interrupt void USCI_A1_ISR(void)
         while(!(UCA1IFG & UCTXIFG));
 
         break;
-    case 4 : break;                 // Vector 4 - TXIFG
+    case 4 :
+        break;                 // Vector 4 - TXIFG
     default : break;
     }
 }
@@ -166,8 +179,8 @@ __interrupt void USCI_A1_ISR(void)
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void TIMER0_A0_ISR(void)
 {
-    if (receiving) {
-        timer_active = 1;
+    if (receiving && (__get_SR_register_on_exit() & CPUOFF)) {
+        __bic_SR_register_on_exit(LPM0_bits);
     }
 }
 
@@ -175,72 +188,31 @@ void receivePacket() {
 
     receiving = 1;
 
-    i = 0;
-    while (i < PACKET_SIZE) {
-        while(timer_active == 0);       //always wait for the right time to acquire data
-        timer_active = 0;
-        packet[i] = P2IN & BIT0;
-        i++;
+    long pos = 0;
+    while (pos < PACKET_SIZE) {
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                  //always wait for the right time to acquire data
+        packet[pos] = P2IN & BIT0;
+        pos++;
     }
-
-
-    /*
-    //Receive start bit
-    while(timer_active == 0);           //always wait for the right time to acquire data
-    if(P2IN & BIT0 != START_BIT) {
-        packet_error = 1;
-        return;
-    }
-
-    //Receive data
-    i = 0;
-    while (i < BUFFER_SIZE*8) {
-        while(timer_active == 0);       //always wait for the right time to acquire data
-        timer_active = 0;
-        temp |= (P2IN & BIT0) << i % 8;
-        if (i != 0 && i % 8 == 0) {
-            buffer[(int)(i / 8)] = temp;
-        }
-        i++;
-    }
-
-    //Receive CRC
-    i = 0;
-    while (i < sizeof(crc) * 8) {
-        while(timer_active == 0);       //always wait for the right time to acquire data
-        timer_active = 0;
-        checksum |= (P2IN & BIT0) << i % (sizeof(crc) * 8);
-        i++;
-    }
-
-    if(!verifyCRC(buffer, checksum)){
-        packet_error = 1;
-        return;
-    }
-
-    //Receive stop bit
-    while(timer_active == 0);       //always wait for the right time to acquire data
-    if(P2IN & BIT0 != STOP_BIT) {
-        packet_error = 1;
-        return;
-    }*/
 
     receiving = 0;
 }
 
 
-void retrieveData(char *packet) {
-    temp = 0;
-    temp += packet[3];
-    temp += packet[5] << 1;
-    temp += packet[6] << 2;
-    temp += packet[7] << 3;
-    temp += packet[9] << 4;
-    temp += packet[10] << 5;
-    temp += packet[11] << 6;
-    temp += packet[12] << 7;
-}
+void retrieveData() {
 
+    temp = 0;
+    unsigned int pos;
+    for (pos = 1; pos < BUFFER_SIZE * 8 + 1; pos++) {
+
+        temp |= packet[pos] << (pos-1) % 8;
+        if (pos != 0 && pos % 8 == 0) {
+            buffer[((pos-1) / 8)] = temp;
+            temp = 0;
+        }
+    }
+}
 
 void crcInit(void)
 {
@@ -285,12 +257,26 @@ void crcInit(void)
 }   /* crcInit() */
 
 
-
-int verifyCRC(char const message[], crc check)
+void verifyData(char const message[])
 {
+
+    // Verify start and stop bits
+    if (packet[0] != START_BIT || packet[PACKET_SIZE - 1] != STOP_BIT) {
+
+        packet_error = 1;
+        return;
+    }
+
+    checksum = 0;
+
+    // Find the checksum from the received packet
+    for(i = 0; i < sizeof(crc) * 8; i++) {
+
+        checksum |= packet[BUFFER_SIZE*8 + 1 + i] << i % (sizeof(crc) * 8);
+    }
+
     char data;
     crc remainder = sizeof(crc);
-
 
     /*
      * Divide the message by the polynomial, a byte at a time.
@@ -304,15 +290,19 @@ int verifyCRC(char const message[], crc check)
     /*
      * The final remainder is the CRC.
      */
-    return (remainder == check);
+    if (remainder != checksum){
+        packet_error = 1;
+    }
 
-}   /* crcFast() */
+}
 
 
 void sendToComputer() {
 
     for (i = 0; i < BUFFER_SIZE; i++) {
-        while(!(UCA1IFG & UCTXIFG));
+        while(UCA1STAT & UCBUSY);
         UCA1TXBUF = buffer[i];
     }
 }
+
+

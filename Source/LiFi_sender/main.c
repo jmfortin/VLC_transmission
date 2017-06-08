@@ -1,7 +1,7 @@
 #include <msp430.h>
 
 // ----------- SELECT BUFFER SIZE --------------------------
-#define BUFFER_SIZE    32          // (bytes)
+#define BUFFER_SIZE    1          // (bytes)
 #define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
@@ -31,14 +31,12 @@ crc crcFast(char const message[], int nBytes);
 
 //attributes
 char temp;
-volatile unsigned int i = 0;
-char buffer[BUFFER_SIZE] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-                            0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
-                            0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17,
-                            0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F};
+volatile unsigned long i = 0;
 int buffer_pos;
+char buffer[BUFFER_SIZE];
 char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
 volatile unsigned int data_received, timer_active;
+volatile unsigned int sending;
 
 //interruption flags
 int USCI_A1_INT = 0;
@@ -112,11 +110,12 @@ int main(void)
 
 
     P2DIR |= BIT0;              //Set output pin (P2.0)
-    P2OUT &= ~BIT0;
+    P2OUT |= BIT0;
 
     timer_active = 0;
     data_received = 0;
     buffer_pos = 0;
+    sending = 0;
 
     crcInit();
 
@@ -171,8 +170,8 @@ __interrupt void TIMER0_A0_ISR(void)
     while(!(ADC12IFG & BIT0));              // Wait for conversion completion
     temp = ADC12MEM0;*/
 
-    if (data_received == 1) {
-        timer_active = 1;
+    if (sending && (__get_SR_register_on_exit() & CPUOFF)) {
+        __bic_SR_register_on_exit(LPM0_bits);
     }
 
 }
@@ -196,16 +195,21 @@ void createPacket(char *buffer) {
 
 void sendPacket() {
 
-    for (i = 0; i < PACKET_SIZE; i++) {
-        while(timer_active == 0);       //wait for timer
-        timer_active = 0;
-        if (packet[i] == 1) {
+    sending = 1;
+
+    long pos;
+    for (pos = 0; pos < PACKET_SIZE; pos++) {
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                  //always wait for the right time to acquire data
+        if (packet[pos] == 1) {
             P2OUT &= ~BIT0;
         }
         else {
             P2OUT |= BIT0;
         }
     }
+
+    sending = 0;
 }
 
 
