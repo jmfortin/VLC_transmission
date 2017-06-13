@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v16.9.3                     
 ******************************************************************************
->> Linked Thu Jun 08 17:25:50 2017
+>> Linked Tue Jun 13 15:37:50 2017
 
 OUTPUT FILE NAME:   <LiFi_sender.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000444c
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000444e
 
 
 MEMORY CONFIGURATION
@@ -19,8 +19,8 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   USBRAM                00001c00   00000800  00000000  00000800  RWIX
-  RAM                   00002400   00002000  000001c2  00001e3e  RWIX
-  FLASH                 00004400   0000bb80  00000098  0000bae8  RWIX
+  RAM                   00002400   00002000  000002d8  00001d28  RWIX
+  FLASH                 00004400   0000bb80  0000009a  0000bae6  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -85,7 +85,7 @@ MEMORY CONFIGURATION
   INT61                 0000fffa   00000002  00000002  00000000  RWIX
   INT62                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FLASH2                00010000   00014400  00000490  00013f70  RWIX
+  FLASH2                00010000   00014400  00000494  00013f6c  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -93,35 +93,35 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.bss       0    00002400    0000011c     UNINITIALIZED
-                  00002400    00000100     (.common:crcTable)
-                  00002500    00000012     (.common:packet)
-                  00002512    00000002     (.common:buffer)
-                  00002514    00000002     (.common:buffer_pos)
-                  00002516    00000002     (.common:data_received)
-                  00002518    00000002     (.common:sending)
-                  0000251a    00000002     (.common:timer_active)
+.bss       0    00002400    00000232     UNINITIALIZED
+                  00002400    0000010a     (.common:packet)
+                  0000250a    00000100     (.common:crcTable)
+                  0000260a    00000020     (.common:buffer)
+                  0000262a    00000002     (.common:buffer_pos)
+                  0000262c    00000002     (.common:data_received)
+                  0000262e    00000002     (.common:sending)
+                  00002630    00000002     (.common:timer_active)
 
-.data      0    0000251c    00000006     UNINITIALIZED
-                  0000251c    00000006     main.obj (.data)
+.data      0    00002632    00000006     UNINITIALIZED
+                  00002632    00000006     main.obj (.data)
 
 .stack     0    00004360    000000a0     UNINITIALIZED
                   00004360    00000004     rts430x_lc_rd_eabi.lib : boot.obj (.stack)
                   00004364    0000009c     --HOLE--
 
 .text:_isr 
-*          0    00004400    0000006e     
-                  00004400    00000030     main.obj (.text:_isr:USCI_A1_ISR)
-                  00004430    0000001c     main.obj (.text:_isr:TIMER0_A0_ISR)
-                  0000444c    0000001a     rts430x_lc_rd_eabi.lib : boot_special.obj (.text:_isr:_c_int00_noargs_noexit)
-                  00004466    00000008                            : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+*          0    00004400    00000070     
+                  00004400    00000032     main.obj (.text:_isr:USCI_A1_ISR)
+                  00004432    0000001c     main.obj (.text:_isr:TIMER0_A0_ISR)
+                  0000444e    0000001a     rts430x_lc_rd_eabi.lib : boot_special.obj (.text:_isr:_c_int00_noargs_noexit)
+                  00004468    00000008                            : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
 
-.cinit     0    0000446e    0000002a     
-                  0000446e    0000000c     (__TI_handler_table)
-                  0000447a    00000007     (.cinit..data.load) [load image, compression = lzss]
-                  00004481    00000001     --HOLE-- [fill = 0]
-                  00004482    00000006     (.cinit..bss.load) [load image, compression = zero_init]
-                  00004488    00000010     (__TI_cinit_table)
+.cinit     0    00004470    0000002a     
+                  00004470    0000000c     (__TI_handler_table)
+                  0000447c    00000007     (.cinit..data.load) [load image, compression = lzss]
+                  00004483    00000001     --HOLE-- [fill = 0]
+                  00004484    00000006     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000448a    00000010     (__TI_cinit_table)
 
 .binit     0    00004400    00000000     
 
@@ -205,33 +205,33 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.obj (.reset)
 
-.text      0    00010000    00000490     
+.text      0    00010000    00000494     
                   00010000    00000124     main.obj (.text:main)
-                  00010124    000000b8     main.obj (.text:createPacket)
-                  000101dc    00000082     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
-                  0001025e    00000078                            : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  000102d6    00000066                            : cpy_tbl.obj (.text:copy_in)
-                  0001033c    00000042     main.obj (.text:sendPacket)
-                  0001037e    0000003e     rts430x_lc_rd_eabi.lib : lsr32.obj (.text:l_lsr_const)
-                  000103bc    00000034     main.obj (.text:crcInit)
-                  000103f0    00000028     main.obj (.text:crcFast)
-                  00010418    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  0001043c    00000018                            : mult16_f5hw.obj (.text)
-                  00010454    00000014                            : memcpy.obj (.text:memcpy)
-                  00010468    00000012                            : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
-                  0001047a    0000000a                            : lsr16.obj (.text)
-                  00010484    00000006                            : exit.obj (.text:abort)
-                  0001048a    00000004                            : pre_init.obj (.text:_system_pre_init)
-                  0001048e    00000002                            : startup.obj (.text:_system_post_cinit)
+                  00010124    000000be     main.obj (.text:createPacket)
+                  000101e2    00000082     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
+                  00010264    00000078                            : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000102dc    00000066                            : cpy_tbl.obj (.text:copy_in)
+                  00010342    00000040     main.obj (.text:sendPacket)
+                  00010382    0000003e     rts430x_lc_rd_eabi.lib : lsr32.obj (.text:l_lsr_const)
+                  000103c0    00000034     main.obj (.text:crcInit)
+                  000103f4    00000028     main.obj (.text:crcFast)
+                  0001041c    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  00010440    00000018                            : mult16_f5hw.obj (.text)
+                  00010458    00000014                            : memcpy.obj (.text:memcpy)
+                  0001046c    00000012                            : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  0001047e    0000000a                            : lsr16.obj (.text)
+                  00010488    00000006                            : exit.obj (.text:abort)
+                  0001048e    00000004                            : pre_init.obj (.text:_system_pre_init)
+                  00010492    00000002                            : startup.obj (.text:_system_post_cinit)
 
 MODULE SUMMARY
 
        Module                     code   ro data   rw data
        ------                     ----   -------   -------
     .\
-       main.obj                   710    4         290    
+       main.obj                   716    4         568    
     +--+--------------------------+------+---------+---------+
-       Total:                     710    4         290    
+       Total:                     716    4         568    
                                                           
     C:\ti\ccsv7\tools\compiler\ti-cgt-msp430_16.9.3.LTS\lib\rts430x_lc_rd_eabi.lib
        autoinit_wdt.obj           130    0         0      
@@ -275,19 +275,19 @@ MODULE SUMMARY
        Stack:                     0      0         160    
        Linker Generated:          0      41        0      
     +--+--------------------------+------+---------+---------+
-       Grand Total:               1278   87        450    
+       Grand Total:               1284   87        728    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00004488 records: 2, size/record: 8, table size: 16
-	.data: load addr=0000447a, load size=00000007 bytes, run addr=0000251c, run size=00000006 bytes, compression=lzss
-	.bss: load addr=00004482, load size=00000006 bytes, run addr=00002400, run size=0000011c bytes, compression=zero_init
+__TI_cinit_table @ 0000448a records: 2, size/record: 8, table size: 16
+	.data: load addr=0000447c, load size=00000007 bytes, run addr=00002632, run size=00000006 bytes, compression=lzss
+	.bss: load addr=00004484, load size=00000006 bytes, run addr=00002400, run size=00000232 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 0000446e records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00004470 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_lzss
 	index: 2, handler: __TI_decompress_none
@@ -379,7 +379,7 @@ address   name
 00000732  ADC12MEM9               
 00000733  ADC12MEM9_H             
 00000732  ADC12MEM9_L             
-00010484  C$$EXIT                 
+00010488  C$$EXIT                 
 000008c0  CBCTL0                  
 000008c1  CBCTL0_H                
 000008c0  CBCTL0_L                
@@ -808,7 +808,7 @@ address   name
 000003e0  TB0EX0                  
 000003ee  TB0IV                   
 000003d0  TB0R                    
-00004430  TIMER0_A0_ISR           
+00004432  TIMER0_A0_ISR           
 000005d0  UCA0ABCTL               
 000005c6  UCA0BRW                 
 000005c7  UCA0BRW_H               
@@ -1044,7 +1044,7 @@ address   name
 00000932  USBVECINT               
 00000933  USBVECINT_H             
 00000932  USBVECINT_L             
-00002520  USCI_A1_INT             
+00002636  USCI_A1_INT             
 00004400  USCI_A1_ISR             
 0000015c  WDTCTL                  
 0000015d  WDTCTL_H                
@@ -1053,15 +1053,15 @@ address   name
 000000a0  __STACK_SIZE            
 UNDEFED   __TI_BINIT_Base         
 UNDEFED   __TI_BINIT_Limit        
-00004488  __TI_CINIT_Base         
-00004498  __TI_CINIT_Limit        
-0000446e  __TI_Handler_Table_Base 
-0000447a  __TI_Handler_Table_Limit
+0000448a  __TI_CINIT_Base         
+0000449a  __TI_CINIT_Limit        
+00004470  __TI_Handler_Table_Base 
+0000447c  __TI_Handler_Table_Limit
 UNDEFED   __TI_INITARRAY_Base     
 UNDEFED   __TI_INITARRAY_Limit    
-00004466  __TI_ISR_TRAP           
-0001025e  __TI_decompress_lzss    
-00010468  __TI_decompress_none    
+00004468  __TI_ISR_TRAP           
+00010264  __TI_decompress_lzss    
+0001046c  __TI_decompress_none    
 0000ffd2  __TI_int41              
 0000ffd4  __TI_int42              
 0000ffd6  __TI_int43              
@@ -1087,47 +1087,47 @@ UNDEFED   __TI_INITARRAY_Limit
 ffffffff  __TI_pprof_out_hndl     
 ffffffff  __TI_prof_data_size     
 ffffffff  __TI_prof_data_start    
-00010418  __TI_zero_init          
+0001041c  __TI_zero_init          
 ffffffff  __c_args__              
-0001043c  __mspabi_mpyi_f5hw      
-0001047a  __mspabi_srli           
-000103b6  __mspabi_srll_1         
-00010392  __mspabi_srll_10        
-0001038e  __mspabi_srll_11        
-0001038a  __mspabi_srll_12        
-00010386  __mspabi_srll_13        
-00010382  __mspabi_srll_14        
-0001037e  __mspabi_srll_15        
-000103b2  __mspabi_srll_2         
-000103ae  __mspabi_srll_3         
-000103aa  __mspabi_srll_4         
-000103a6  __mspabi_srll_5         
-000103a2  __mspabi_srll_6         
-0001039e  __mspabi_srll_7         
-0001039a  __mspabi_srll_8         
-00010396  __mspabi_srll_9         
-000101dc  _auto_init_hold_wdt     
-0000444c  _c_int00_noargs_noexit  
+00010440  __mspabi_mpyi_f5hw      
+0001047e  __mspabi_srli           
+000103ba  __mspabi_srll_1         
+00010396  __mspabi_srll_10        
+00010392  __mspabi_srll_11        
+0001038e  __mspabi_srll_12        
+0001038a  __mspabi_srll_13        
+00010386  __mspabi_srll_14        
+00010382  __mspabi_srll_15        
+000103b6  __mspabi_srll_2         
+000103b2  __mspabi_srll_3         
+000103ae  __mspabi_srll_4         
+000103aa  __mspabi_srll_5         
+000103a6  __mspabi_srll_6         
+000103a2  __mspabi_srll_7         
+0001039e  __mspabi_srll_8         
+0001039a  __mspabi_srll_9         
+000101e2  _auto_init_hold_wdt     
+0000444e  _c_int00_noargs_noexit  
 0000fffe  _reset_vector           
 00004360  _stack                  
-0001048e  _system_post_cinit      
-0001048a  _system_pre_init        
-00010484  abort                   
-00002512  buffer                  
-00002514  buffer_pos              
-000102d6  copy_in                 
-000103f0  crcFast                 
-000103bc  crcInit                 
-00002400  crcTable                
+00010492  _system_post_cinit      
+0001048e  _system_pre_init        
+00010488  abort                   
+0000260a  buffer                  
+0000262a  buffer_pos              
+000102dc  copy_in                 
+000103f4  crcFast                 
+000103c0  crcInit                 
+0000250a  crcTable                
 00010124  createPacket            
-00002516  data_received           
-0000251c  i                       
+0000262c  data_received           
+00002632  i                       
 00010000  main                    
-00010454  memcpy                  
-00002500  packet                  
-0001033c  sendPacket              
-00002518  sending                 
-0000251a  timer_active            
+00010458  memcpy                  
+00002400  packet                  
+00010342  sendPacket              
+0000262e  sending                 
+00002630  timer_active            
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1883,25 +1883,25 @@ address   name
 000023fd  USBIEPBBAY_7            
 000023fe  USBIEPBCTY_7            
 000023ff  USBIEPSIZXY_7           
-00002400  crcTable                
-00002500  packet                  
-00002512  buffer                  
-00002514  buffer_pos              
-00002516  data_received           
-00002518  sending                 
-0000251a  timer_active            
-0000251c  i                       
-00002520  USCI_A1_INT             
+00002400  packet                  
+0000250a  crcTable                
+0000260a  buffer                  
+0000262a  buffer_pos              
+0000262c  data_received           
+0000262e  sending                 
+00002630  timer_active            
+00002632  i                       
+00002636  USCI_A1_INT             
 00004360  _stack                  
 00004400  USCI_A1_ISR             
 00004400  __STACK_END             
-00004430  TIMER0_A0_ISR           
-0000444c  _c_int00_noargs_noexit  
-00004466  __TI_ISR_TRAP           
-0000446e  __TI_Handler_Table_Base 
-0000447a  __TI_Handler_Table_Limit
-00004488  __TI_CINIT_Base         
-00004498  __TI_CINIT_Limit        
+00004432  TIMER0_A0_ISR           
+0000444e  _c_int00_noargs_noexit  
+00004468  __TI_ISR_TRAP           
+00004470  __TI_Handler_Table_Base 
+0000447c  __TI_Handler_Table_Limit
+0000448a  __TI_CINIT_Base         
+0000449a  __TI_CINIT_Limit        
 0000ffd2  __TI_int41              
 0000ffd4  __TI_int42              
 0000ffd6  __TI_int43              
@@ -1927,36 +1927,36 @@ address   name
 0000fffe  _reset_vector           
 00010000  main                    
 00010124  createPacket            
-000101dc  _auto_init_hold_wdt     
-0001025e  __TI_decompress_lzss    
-000102d6  copy_in                 
-0001033c  sendPacket              
-0001037e  __mspabi_srll_15        
-00010382  __mspabi_srll_14        
-00010386  __mspabi_srll_13        
-0001038a  __mspabi_srll_12        
-0001038e  __mspabi_srll_11        
-00010392  __mspabi_srll_10        
-00010396  __mspabi_srll_9         
-0001039a  __mspabi_srll_8         
-0001039e  __mspabi_srll_7         
-000103a2  __mspabi_srll_6         
-000103a6  __mspabi_srll_5         
-000103aa  __mspabi_srll_4         
-000103ae  __mspabi_srll_3         
-000103b2  __mspabi_srll_2         
-000103b6  __mspabi_srll_1         
-000103bc  crcInit                 
-000103f0  crcFast                 
-00010418  __TI_zero_init          
-0001043c  __mspabi_mpyi_f5hw      
-00010454  memcpy                  
-00010468  __TI_decompress_none    
-0001047a  __mspabi_srli           
-00010484  C$$EXIT                 
-00010484  abort                   
-0001048a  _system_pre_init        
-0001048e  _system_post_cinit      
+000101e2  _auto_init_hold_wdt     
+00010264  __TI_decompress_lzss    
+000102dc  copy_in                 
+00010342  sendPacket              
+00010382  __mspabi_srll_15        
+00010386  __mspabi_srll_14        
+0001038a  __mspabi_srll_13        
+0001038e  __mspabi_srll_12        
+00010392  __mspabi_srll_11        
+00010396  __mspabi_srll_10        
+0001039a  __mspabi_srll_9         
+0001039e  __mspabi_srll_8         
+000103a2  __mspabi_srll_7         
+000103a6  __mspabi_srll_6         
+000103aa  __mspabi_srll_5         
+000103ae  __mspabi_srll_4         
+000103b2  __mspabi_srll_3         
+000103b6  __mspabi_srll_2         
+000103ba  __mspabi_srll_1         
+000103c0  crcInit                 
+000103f4  crcFast                 
+0001041c  __TI_zero_init          
+00010440  __mspabi_mpyi_f5hw      
+00010458  memcpy                  
+0001046c  __TI_decompress_none    
+0001047e  __mspabi_srli           
+00010488  C$$EXIT                 
+00010488  abort                   
+0001048e  _system_pre_init        
+00010492  _system_post_cinit      
 ffffffff  __TI_pprof_out_hndl     
 ffffffff  __TI_prof_data_size     
 ffffffff  __TI_prof_data_start    

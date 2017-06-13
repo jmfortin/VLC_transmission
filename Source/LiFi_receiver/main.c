@@ -1,7 +1,12 @@
 #include <msp430.h>
 
+// ----------- CLOCK ----------------------------------------
+#define CLOCK_SPEED    DCORSEL_5        // See UCSCTL1 settings in datasheet
+#define TIMER_COUNTER  400              // Number of clock cycles before every timer interrupt
+                                        // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
+// ----------------------------------------------------------
 // ----------- SELECT BUFFER SIZE ---------------------------
-#define BUFFER_SIZE    1          // (bytes)
+#define BUFFER_SIZE    32          // (bytes)
 #define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
@@ -26,7 +31,7 @@ void retrieveData();
 void crcInit();
 void verifyData(char const message[]);
 void sendToComputer();
-void resetPacket();
+void error();
 
 //attributes
 volatile unsigned char temp;
@@ -57,15 +62,14 @@ int main(void)
     UCSCTL4 |= SELA_2;                        // Set ACLK = REFO
     UCSCTL0 = 0x0000;                         // Set lowest possible DCOx, MODx
 
-    do
-    {
+    do {
         UCSCTL7 &= ~(XT2OFFG + XT1LFOFFG + DCOFFG);
         SFRIFG1 &= ~OFIFG;
     } while(SFRIFG1 & OFIFG);
 
     __bis_SR_register(SCG0);                  // Disable the FLL control loop
 
-    UCSCTL1 = DCORSEL_5;                      // Select DCO range 16MHz operation
+    UCSCTL1 = CLOCK_SPEED;                    // Select DCO range 16MHz operation
     UCSCTL2 |= 249;                           // Set DCO Multiplier for 8MHz
                                               // (N + 1) * FLLRef = Fdco
                                               // (249 + 1) * 32768 = 8MHz
@@ -93,7 +97,7 @@ int main(void)
 
     // SET TIMER
     TA0CCTL0 = CCIE;                        // CCR0 interrupt enabled
-    TA0CCR0 = 1600;                         // Sample 5000 times per second
+    TA0CCR0 = TIMER_COUNTER;                // Sample 5000 times per second
     TA0CTL = TASSEL_2 + MC_1 + TACLR;
 
 
@@ -136,6 +140,9 @@ int main(void)
         if (packet_error == 0) {
             sendToComputer();
         }
+        else {
+            error();
+        }
 
 
         packet_error = 0;
@@ -150,7 +157,7 @@ int main(void)
 __interrupt void Port_2(void)
 {
     if (ready == 1) {
-        TA0R = 800;
+        TA0R = TIMER_COUNTER / 2;
         ready = 0;
         __bic_SR_register_on_exit(LPM0_bits);
     }
@@ -303,6 +310,14 @@ void sendToComputer() {
         while(UCA1STAT & UCBUSY);
         UCA1TXBUF = buffer[i];
     }
+}
+
+void error() {
+    char error[9] = "\n\rERROR\n\r";
+    for (i = 0; i < 9; i++) {
+            while(UCA1STAT & UCBUSY);
+            UCA1TXBUF = error[i];
+        }
 }
 
 

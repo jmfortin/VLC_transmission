@@ -1,7 +1,13 @@
 #include <msp430.h>
 
-// ----------- SELECT BUFFER SIZE --------------------------
-#define BUFFER_SIZE    1          // (bytes)
+
+// ----------- CLOCK ----------------------------------------
+#define CLOCK_SPEED    DCORSEL_5        // See UCSCTL1 settings in datasheet
+#define TIMER_COUNTER  400              // Number of clock cycles before every timer interrupt
+                                        // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
+// ----------------------------------------------------------
+// ----------- SELECT BUFFER SIZE ---------------------------
+#define BUFFER_SIZE    32          // (bytes)
 #define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
@@ -66,7 +72,7 @@ int main(void)
 
     __bis_SR_register(SCG0);                  // Disable the FLL control loop
 
-    UCSCTL1 = DCORSEL_5;                      // Select DCO range 16MHz operation
+    UCSCTL1 = CLOCK_SPEED;                      // Select DCO range 16MHz operation
     UCSCTL2 |= 249;                           // Set DCO Multiplier for 8MHz
                                               // (N + 1) * FLLRef = Fdco
                                               // (249 + 1) * 32768 = 8MHz
@@ -94,7 +100,7 @@ int main(void)
 
     // SET TIMER
     TA0CCTL0 = CCIE;                        // CCR0 interrupt enabled
-    TA0CCR0 = 1600;                         // Sample 5000 times per second
+    TA0CCR0 = TIMER_COUNTER;                // Sample 5000 times per second
     TA0CTL = TASSEL_2 + MC_1 + TACLR;
 
 
@@ -197,17 +203,28 @@ void sendPacket() {
 
     sending = 1;
 
-    long pos;
-    for (pos = 0; pos < PACKET_SIZE; pos++) {
-        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
-                                                  //always wait for the right time to acquire data
-        if (packet[pos] == 1) {
-            P2OUT &= ~BIT0;
+    while(1) {
+        long pos;
+        for (pos = 0; pos < PACKET_SIZE; pos++) {
+            __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                      //always wait for the right time to acquire data
+            if (packet[pos] == 1) {
+                P2OUT &= ~BIT0;
+            }
+            else {
+                P2OUT |= BIT0;
+            }
         }
-        else {
-            P2OUT |= BIT0;
-        }
+        pos = 0;
     }
+
+/*
+    long pos;
+    while(1) {
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                          //always wait for the right time to acquire data
+        P2OUT ^= BIT0;
+    }*/
 
     sending = 0;
 }
