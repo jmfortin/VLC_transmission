@@ -1,9 +1,9 @@
 #include <msp430.h>
-
+#include "MSP430F5xx_6xx/driverlib.h"
 
 // ----------- CLOCK ----------------------------------------
-#define CLOCK_SPEED    DCORSEL_5        // See UCSCTL1 settings in datasheet
-#define TIMER_COUNTER  400              // Number of clock cycles before every timer interrupt
+#define CLOCK_FREQUENCY  24000000       // (hertz)
+#define TIMER_COUNTER    1600           // Number of clock cycles before every timer interrupt
                                         // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
 // ----------------------------------------------------------
 // ----------- SELECT BUFFER SIZE ---------------------------
@@ -43,6 +43,7 @@ char buffer[BUFFER_SIZE];
 char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
 volatile unsigned int data_received, timer_active;
 volatile unsigned int sending;
+uint32_t smclk;
 
 //interruption flags
 int USCI_A1_INT = 0;
@@ -60,26 +61,11 @@ int main(void)
     WDTCTL = WDTPW+WDTHOLD;                   // Stop watchdog timer
 
     // SET CLOCK
-    UCSCTL3 = SELREF_2;                       // Set DCO FLL reference = REFO
-    UCSCTL4 |= SELA_2;                        // Set ACLK = REFO
-    UCSCTL0 = 0x0000;                         // Set lowest possible DCOx, MODx
+    UCS_initClockSignal(UCS_SMCLK, UCS_DCOCLK_SELECT, UCS_CLOCK_DIVIDER_1);    // Select SMCLK to be DCO
+    PMM_setVCore(PMM_CORE_LEVEL_3);                                            // Set VCore Up to level 3 to be able to run higher than 20 MHz
+    UCS_initFLLSettle(CLOCK_FREQUENCY*2, CLOCK_FREQUENCY / 32768);             // Set clock source to selected frequency
 
-    do
-    {
-        UCSCTL7 &= ~(XT2OFFG + XT1LFOFFG + DCOFFG);
-        SFRIFG1 &= ~OFIFG;
-    } while(SFRIFG1 & OFIFG);
-
-    __bis_SR_register(SCG0);                  // Disable the FLL control loop
-
-    UCSCTL1 = CLOCK_SPEED;                      // Select DCO range 16MHz operation
-    UCSCTL2 |= 249;                           // Set DCO Multiplier for 8MHz
-                                              // (N + 1) * FLLRef = Fdco
-                                              // (249 + 1) * 32768 = 8MHz
-
-    __bic_SR_register(SCG0);                  // Enable the FLL control loop
-
-    __delay_cycles(250000);                   // Settling time for the DCO
+    smclk = UCS_getSMCLK();
 
     P7DIR |= BIT7;
     P7SEL |= BIT7;                            // To see the clock output on P7.7
@@ -108,9 +94,9 @@ int main(void)
     P4SEL |= BIT4 + BIT5;               // P4.4 = TX  and  P4.5 = RX
     UCA1CTL1 |= UCSWRST;                // Reset the UART state machine
     UCA1CTL1 |= UCSSEL_2;               // SMCLK
-    UCA1BR0 = 69;
+    UCA1BR0 = 208;
     UCA1BR1 = 0;                        // Set baud rate to 115200 (User's guide)
-    UCA1MCTL |= UCBRS_4 + UCBRF_0;      // Select the correct modulation
+    UCA1MCTL |= UCBRS_2 + UCBRF_0;      // Select the correct modulation
     UCA1CTL1 &= ~UCSWRST;               // Start the UART state machine
     UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
 
@@ -203,20 +189,18 @@ void sendPacket() {
 
     sending = 1;
 
-    while(1) {
-        long pos;
-        for (pos = 0; pos < PACKET_SIZE; pos++) {
-            __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
-                                                      //always wait for the right time to acquire data
-            if (packet[pos] == 1) {
-                P2OUT &= ~BIT0;
-            }
-            else {
-                P2OUT |= BIT0;
-            }
+    long pos;
+    for (pos = 0; pos < PACKET_SIZE; pos++) {
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                  //always wait for the right time to acquire data
+        if (packet[pos] == 1) {
+            P2OUT &= ~BIT0;
         }
-        pos = 0;
+        else {
+            P2OUT |= BIT0;
+        }
     }
+    pos = 0;
 
 /*
     long pos;
@@ -277,7 +261,7 @@ void crcInit(void)
 crc crcFast(char const message[], int nBytes)
 {
     char data;
-    crc remainder = sizeof(crc);
+    crc remainder = 0;
 
 
     /*
