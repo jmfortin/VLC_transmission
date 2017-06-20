@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=NetQ3_2 Pin=Q3-2
+Added Net: Name=NetQ3_2
+Added Member To Class: ClassName=LiFi_transmitter Member=Component LED1 SFH4250S

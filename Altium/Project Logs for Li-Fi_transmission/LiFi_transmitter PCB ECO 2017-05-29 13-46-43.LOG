@@ -1,0 +1,39 @@
+Added Component: Designator=LED1(SFH4250S)
+Added Component: Designator=Q1(TO-92A)
+Added Component: Designator=Q2(TO-92A)
+Added Component: Designator=Q3(TO-92A)
+Added Component: Designator=R1(AXIAL-0.3)
+Added Component: Designator=R2(AXIAL-0.3)
+Added Component: Designator=R3(AXIAL-0.3)
+Added Component: Designator=U1(LMV793)
+Added Pin To Net: NetName=GND Pin=Q2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Net: Name=GND
+Added Pin To Net: NetName=NetIs_1 Pin=R3-1
+Added Pin To Net: NetName=NetIs_1 Pin=U1-4
+Added Net: Name=NetIs_1
+Added Pin To Net: NetName=NetLED1_2, 3, 4 Pin=LED1-2
+Added Pin To Net: NetName=NetLED1_2, 3, 4 Pin=Q1-3
+Added Net: Name=NetLED1_2, 3, 4
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=Q2-2
+Added Pin To Net: NetName=NetQ1_1 Pin=R2-2
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=NetQ1_2 Pin=Q1-2
+Added Pin To Net: NetName=NetQ1_2 Pin=Q2-3
+Added Pin To Net: NetName=NetQ1_2 Pin=R1-1
+Added Net: Name=NetQ1_2
+Added Pin To Net: NetName=NetQ3_3 Pin=Q3-3
+Added Pin To Net: NetName=NetQ3_3 Pin=R1-2
+Added Net: Name=NetQ3_3
+Added Pin To Net: NetName=VCC Pin=LED1-1
+Added Pin To Net: NetName=VCC Pin=Q3-1
+Added Pin To Net: NetName=VCC Pin=U1-5
+Added Net: Name=VCC
+Added Pin To Net: NetName=VO Pin=R3-2
+Added Pin To Net: NetName=VO Pin=U1-1
+Added Net: Name=VO
+Added Class: Name=LiFi_transmitter
+Added Room: Name=LiFi_transmitter

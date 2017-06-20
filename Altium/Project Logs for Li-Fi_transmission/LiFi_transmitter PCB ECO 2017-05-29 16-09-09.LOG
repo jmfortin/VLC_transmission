@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=NetLED1_2, 3, 4 Pin=Q1-3
+Removed Pin From Net: NetName=GND Pin=Q2-1
+Removed Pin From Net: NetName=VCC Pin=Q3-1
+Removed Pin From Net: NetName=NetQ1_2 Pin=R1-1
+Change Component DesignItemId : Designator=Q1 Old DesignItemId=2N3904 New DesignItemId=MMBTA06L
+Change Component DesignItemId : Designator=Q2 Old DesignItemId=2N3904 New DesignItemId=MMBTA06L
+Change Component DesignItemId : Designator=Q3 Old DesignItemId=2N3906 New DesignItemId=MMBTA56L
+Change Component Footprint: Designator=Q1 Old Footprint=TO-92A New Footprint=MMBTA06L
+Change Component Footprint: Designator=Q2 Old Footprint=TO-92A New Footprint=MMBTA06L
+Change Component Footprint: Designator=Q3 Old Footprint=TO-92A New Footprint=MMBTA56L
+Change Component Comment : Designator=Q1 Old Comment=2N3904 New Comment=MMBTA06L
+Change Component Comment : Designator=Q2 Old Comment=2N3904 New Comment=MMBTA06L
+Change Component Comment : Designator=Q3 Old Comment=2N3906 New Comment=MMBTA56L
+Added Pin To Net: NetName=GND Pin=Q1-1
+Added Pin To Net: NetName=NetLED1_2, 3, 4 Pin=Q2-1
+Added Pin To Net: NetName=VCC Pin=Q3-3
+Added Pin To Net: NetName=NetQ1_2 Pin=R2-2
+Added Pin To Net: NetName=NetQ1_3 Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_3 Pin=Q2-2
+Added Pin To Net: NetName=NetQ1_3 Pin=R1-1
+Added Net: Name=NetQ1_3
+Added Pin To Net: NetName=NetQ3_1 Pin=Q3-1
+Added Pin To Net: NetName=NetQ3_1 Pin=R1-2
+Added Net: Name=NetQ3_1

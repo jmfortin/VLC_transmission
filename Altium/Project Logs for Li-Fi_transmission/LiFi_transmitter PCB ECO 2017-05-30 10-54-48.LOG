@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=GND Pin=R2-1
+Removed Pin From Net: NetName=NetQ1_2 Pin=R2-2
+Removed Pin From Net: NetName=NetD1_1 Pin=R3-1
+Change Component DesignItemId : Designator=R2 Old DesignItemId=Res1 New DesignItemId=TC33
+Change Component DesignItemId : Designator=R3 Old DesignItemId=Res1 New DesignItemId=TC33
+Change Component Footprint: Designator=R2 Old Footprint=6-0805_N New Footprint=TC33
+Change Component Footprint: Designator=R3 Old Footprint=6-0805_N New Footprint=TC33
+Change Component Comment : Designator=R2 Old Comment=Res1 New Comment=TRIMPOT
+Change Component Comment : Designator=R3 Old Comment=Res1 New Comment=TRIMPOT
+Added Pin To Net: NetName=NetQ1_2 Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-2
+Added Pin To Net: NetName=NetD1_1 Pin=R3-3

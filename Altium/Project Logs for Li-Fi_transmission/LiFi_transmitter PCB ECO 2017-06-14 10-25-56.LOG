@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=GND Pin=Q1-3
+Added Component: Designator=J1(PIN1)
+Added Component: Designator=J2(PIN1)
+Added Component: Designator=J3(PIN1)
+Added Component: Designator=J4(PIN1)
+Added Component: Designator=Q4(MMBTA56L)
+Added Pin To Net: NetName=VCC Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J2-1
+Added Pin To Net: NetName=VI Pin=J3-1
+Added Pin To Net: NetName=VO Pin=J4-1
+Added Pin To Net: NetName=GND Pin=Q1-2
+Added Pin To Net: NetName=VCC Pin=Q4-2
+Added Pin To Net: NetName=NetLED1_1 Pin=Q4-3
+Added Pin To Net: NetName=GND Pin=R2-3
+Added Pin To Net: NetName=VO Pin=R3-1
+Added Pin To Net: NetName=NetQ1_3 Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_3 Pin=Q2-1
+Added Pin To Net: NetName=NetQ1_3 Pin=Q4-1
+Added Pin To Net: NetName=NetQ1_3 Pin=R1-1
+Added Net: Name=NetQ1_3
+Added Member To Class: ClassName=LiFi_transmitter Member=Component J1 Socket
+Added Member To Class: ClassName=LiFi_transmitter Member=Component J2 Socket
+Added Member To Class: ClassName=LiFi_transmitter Member=Component J3 Socket
+Added Member To Class: ClassName=LiFi_transmitter Member=Component J4 Socket
+Added Member To Class: ClassName=LiFi_transmitter Member=Component Q4 MMBTA56L

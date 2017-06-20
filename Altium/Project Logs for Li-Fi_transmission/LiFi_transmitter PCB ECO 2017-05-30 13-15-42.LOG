@@ -1,0 +1,11 @@
+Added Component: Designator=Q1(MMBTA06L)
+Added Pin To Net: NetName=GND Pin=Q1-3
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=Q2-3
+Added Pin To Net: NetName=NetQ1_1 Pin=R2-1
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=NetQ1_2 Pin=Q1-2
+Added Pin To Net: NetName=NetQ1_2 Pin=Q2-2
+Added Pin To Net: NetName=NetQ1_2 Pin=R1-1
+Added Net: Name=NetQ1_2
+Added Member To Class: ClassName=LiFi_transmitter Member=Component Q1 MMBTA06L

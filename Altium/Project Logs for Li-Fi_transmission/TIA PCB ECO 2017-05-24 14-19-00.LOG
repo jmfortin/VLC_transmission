@@ -1,0 +1,17 @@
+Added Component: Designator=R2(AXIAL-0.3)
+Added Component: Designator=U2(M08A_N)
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Net: Name=GND
+Added Net: Name=NetD1_2
+Added Pin To Net: NetName=NetIs_1 Pin=R2-1
+Added Pin To Net: NetName=NetIs_1 Pin=U2-2
+Added Net: Name=NetIs_1
+Added Net: Name=NetQ1_2
+Added Pin To Net: NetName=VCC Pin=U2-8
+Added Net: Name=VCC
+Added Pin To Net: NetName=VO Pin=R2-2
+Added Pin To Net: NetName=VO Pin=U2-1
+Added Net: Name=VO
+Added Class: Name=TIA
+Added Room: Name=TIA
