@@ -2,7 +2,7 @@
 #include "MSP430F5xx_6xx/driverlib.h"
 
 // ----------- CLOCK ----------------------------------------
-#define CLOCK_FREQUENCY  24000000       // (hertz)
+#define CLOCK_FREQUENCY  8000000       // (hertz)
 #define TIMER_COUNTER    1600           // Number of clock cycles before every timer interrupt
                                         // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
 // ----------------------------------------------------------
@@ -104,10 +104,10 @@ int main(void)
     P4SEL |= BIT4 + BIT5;               // P4.4 = TX  and  P4.5 = RX
     UCA1CTL1 |= UCSWRST;                // Reset the UART state machine
     UCA1CTL1 |= UCSSEL_2;               // SMCLK
-    UCA1BR0 = 208;
+    UCA1BR0 = 69;
     UCA1BR1 = 0;                        // Set baud rate to 115200 (User's guide)
                                         // http://processors.wiki.ti.com/index.php?title=USCI_UART_Baud_Rate_Gen_Mode_Selection&oldid=122242
-    UCA1MCTL |= UCBRS_2 + UCBRF_0;      // Select the correct modulation
+    UCA1MCTL |= UCBRS_4 + UCBRF_0;      // Select the correct modulation
     UCA1CTL1 &= ~UCSWRST;               // Start the UART state machine
     UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
 

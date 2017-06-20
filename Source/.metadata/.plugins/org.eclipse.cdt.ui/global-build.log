@@ -1,0 +1,268 @@
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_sender ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_sender.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_sender ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_sender.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_sender ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_sender.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Jean-Michel/Documents/GitHub/VLC_transmission/Source/LiFi_receiver" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --advice:power=all --define=__MSP430F5529__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d"  "../main.c"
+
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'main.obj' failed
+"../main.c", line 147: warning #112-D: statement is unreachable
+"../main.c", line 75: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 89: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 89: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 171: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 196: remark #2553-D: (ULP 14.1) Array index (involving "pos") of type "long". Recommend using "unsigned long"
+"../main.c", line 208: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 210: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 211: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 212: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 226: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 226: remark #1543-D: (ULP 12.2) Detected for loop with repetitive data transfer. Recommend using DMA
+"../main.c", line 255: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 255: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 272: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 274: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 284: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 285: remark #2553-D: (ULP 14.1) Array index (involving "byte") of type "int". Recommend using "unsigned int"
+"../main.c", line 301: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 307: error #29: expected an expression
+"../main.c", line 307: error #138: expression must be a modifiable lvalue
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "USCI_A1_INT" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Jean-Michel/Documents/GitHub/VLC_transmission/Source/LiFi_receiver" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --advice:power=all --define=__MSP430F5529__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d"  "../main.c"
+
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'main.obj' failed
+"../main.c", line 147: warning #112-D: statement is unreachable
+"../main.c", line 75: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 89: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 89: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 171: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 196: remark #2553-D: (ULP 14.1) Array index (involving "pos") of type "long". Recommend using "unsigned long"
+"../main.c", line 208: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 210: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 211: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 212: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 226: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 226: remark #1543-D: (ULP 12.2) Detected for loop with repetitive data transfer. Recommend using DMA
+"../main.c", line 255: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 255: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 272: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 274: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 284: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 285: remark #2553-D: (ULP 14.1) Array index (involving "byte") of type "int". Recommend using "unsigned int"
+"../main.c", line 301: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 307: error #29: expected an expression
+"../main.c", line 311: warning #12-D: parsing restarts here after previous syntax error
+"../main.c", line 307: error #138: expression must be a modifiable lvalue
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "USCI_A1_INT" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_sender ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Jean-Michel/Documents/GitHub/VLC_transmission/Source/LiFi_sender" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --advice:power=all --define=__MSP430F5529__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d"  "../main.c"
+"../main.c", line 137: warning #112-D: statement is unreachable
+"../main.c", line 79: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 93: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 93: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 151: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 153: remark #2553-D: (ULP 14.1) Array index (involving "buffer_pos") of type "int". Recommend using "unsigned int"
+"../main.c", line 189: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 190: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../main.c", line 190: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 193: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 204: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 207: remark #2553-D: (ULP 14.1) Array index (involving "pos") of type "long". Recommend using "unsigned long"
+"../main.c", line 227: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 227: remark #1543-D: (ULP 12.2) Detected for loop with repetitive data transfer. Recommend using DMA
+"../main.c", line 256: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 256: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 273: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 274: remark #2553-D: (ULP 14.1) Array index (involving "byte") of type "int". Recommend using "unsigned int"
+"../main.c", line 45: remark #1535-D: (ULP 8.1) variable "USCI_A1_INT" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+'Finished building: ../main.c'
+' '
+'Building target: LiFi_sender.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=F5 --advice:power=all --define=__MSP430F5529__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"LiFi_sender.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="LiFi_sender_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "LiFi_sender.out" "./main.obj" "../lnk_msp430f5529.cmd"  -llibmath.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port D in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+'Finished building target: LiFi_sender.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=F5 --include_path="C:/ti/ccsv7/ccs_base/msp430/include" --include_path="C:/Users/Jean-Michel/Documents/GitHub/VLC_transmission/Source/LiFi_receiver" --include_path="C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --advice:power=all --define=__MSP430F5529__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d"  "../main.c"
+"../main.c", line 145: warning #112-D: statement is unreachable
+"../main.c", line 75: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../main.c", line 89: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 89: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../main.c", line 169: remark #1528-D: (ULP 3.1) Detected flag polling using UCTXIFG. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 194: remark #2553-D: (ULP 14.1) Array index (involving "pos") of type "long". Recommend using "unsigned long"
+"../main.c", line 206: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 208: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 209: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 210: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 224: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 224: remark #1543-D: (ULP 12.2) Detected for loop with repetitive data transfer. Recommend using DMA
+"../main.c", line 253: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 253: remark #2553-D: (ULP 14.1) Array index (involving "dividend") of type "int". Recommend using "unsigned int"
+"../main.c", line 270: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 272: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 282: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 283: remark #2553-D: (ULP 14.1) Array index (involving "byte") of type "int". Recommend using "unsigned int"
+"../main.c", line 299: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "USCI_A1_INT" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+'Finished building: ../main.c'
+' '
+'Building target: LiFi_receiver.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmspx --data_model=restricted --use_hw_mpy=F5 --advice:power=all --define=__MSP430F5529__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"LiFi_receiver.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/ccs_base/msp430/lib/5xx_6xx_FRxx" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="LiFi_receiver_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "LiFi_receiver.out" "./main.obj" "../lnk_msp430f5529.cmd"  -llibmath.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port D in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+'Finished building target: LiFi_receiver.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_sender ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_sender.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project LiFi_receiver ****
+
+"C:\\ti\\ccsv7\\utils\\bin\\gmake" -k -j 8 all -O 
+gmake[1]: 'LiFi_receiver.out' is up to date.
+
+**** Build Finished ****

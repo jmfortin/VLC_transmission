@@ -2,9 +2,9 @@
 #include "MSP430F5xx_6xx/driverlib.h"
 
 // ----------- CLOCK ----------------------------------------
-#define CLOCK_FREQUENCY  24000000       // (hertz)
+#define CLOCK_FREQUENCY  8000000        // (hertz)
 #define TIMER_COUNTER    1600           // Number of clock cycles before every timer interrupt
-                                        // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
+                                        // Here it also represents the baud rate of li-fi transmission (CLOCK_SPEED / TIMER_COUNTER)
 // ----------------------------------------------------------
 // ----------- SELECT BUFFER SIZE ---------------------------
 #define BUFFER_SIZE    32          // (bytes)
@@ -17,14 +17,15 @@
 // ----------- PARITY BIT -----------------------------------
 #define PARITY         0           // 0 = even, 1 = odd
 // ----------------------------------------------------------
-
-typedef char crc;
-
-#define WIDTH  (8 * sizeof(crc))
-#define TOPBIT (1 << (WIDTH - 1))
-#define POLYNOMIAL 0x31  /* 11011 followed by 0's */
-
-crc crcTable[256];
+// ----------- UART TRANSMISSION ----------------------------
+#define BAUD_RATE      115200      // (bit/s) - the communication with the computer
+// ----------------------------------------------------------
+// ----------- CRC ------------------------------------------
+typedef char crc;                       // Decides of the size of the crc
+#define POLYNOMIAL 0x31                 // The generator polynomial
+#define WIDTH  (8 * sizeof(crc))        // The crc's width (Don't change this)
+#define TOPBIT (1 << (WIDTH - 1))       // Leftmost bit (Don't change this)
+// ----------------------------------------------------------
 
 
 //functions
@@ -38,6 +39,7 @@ crc crcFast(char const message[], int nBytes);
 //attributes
 char temp;
 volatile unsigned long i = 0;
+crc crcTable[256];
 int buffer_pos;
 char buffer[BUFFER_SIZE];
 char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
@@ -94,9 +96,9 @@ int main(void)
     P4SEL |= BIT4 + BIT5;               // P4.4 = TX  and  P4.5 = RX
     UCA1CTL1 |= UCSWRST;                // Reset the UART state machine
     UCA1CTL1 |= UCSSEL_2;               // SMCLK
-    UCA1BR0 = 208;
+    UCA1BR0 = 69;
     UCA1BR1 = 0;                        // Set baud rate to 115200 (User's guide)
-    UCA1MCTL |= UCBRS_2 + UCBRF_0;      // Select the correct modulation
+    UCA1MCTL |= UCBRS_4 + UCBRF_0;      // Select the correct modulation
     UCA1CTL1 &= ~UCSWRST;               // Start the UART state machine
     UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
 
@@ -110,6 +112,8 @@ int main(void)
     sending = 0;
 
     crcInit();
+
+    __enable_interrupt();
 
     while(1) {
 
@@ -139,6 +143,7 @@ __interrupt void USCI_A1_ISR(void)
     case 2 :                        // Vector 2 - RXIFG9
         while(!(UCA1IFG & UCTXIFG));
 
+        UCA1TXBUF = UCA1RXBUF;
         buffer[buffer_pos] = UCA1RXBUF;
         buffer_pos++;
 
@@ -203,11 +208,20 @@ void sendPacket() {
     pos = 0;
 
 /*
-    long pos;
+    char test = 0;
     while(1) {
         __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
-                                                          //always wait for the right time to acquire data
-        P2OUT ^= BIT0;
+                                                  //always wait for the right time to acquire data
+        for (i = 0; i < 8; i++)  {
+            int bit = (test >> i % 8) & 1;
+            if (bit == 1) {
+                P2OUT &= ~BIT0;
+            }
+            else {
+                P2OUT |= BIT0;
+            }
+        }
+        test++;
     }*/
 
     sending = 0;
