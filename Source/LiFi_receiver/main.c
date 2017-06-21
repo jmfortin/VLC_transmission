@@ -1,30 +1,30 @@
 #include <msp430.h>
 #include "MSP430F5xx_6xx/driverlib.h"
+#include <math.h>
 
 // ----------- CLOCK ----------------------------------------
-#define CLOCK_FREQUENCY  8000000       // (hertz)
-#define TIMER_COUNTER    1600           // Number of clock cycles before every timer interrupt
+#define CLOCK_FREQUENCY  8000000        // (hertz)
+#define TIMER_COUNTER    8000           // Number of clock cycles before every timer interrupt
                                         // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
 // ----------------------------------------------------------
+// ----------- UART TRANSMISSION ----------------------------
+#define UART_BAUD_RATE      115200      // (bit/s) - the communication with the computer
+// ----------------------------------------------------------
 // ----------- SELECT BUFFER SIZE ---------------------------
-#define BUFFER_SIZE    32          // (bytes)
+#define BUFFER_SIZE    32               // (bytes)
 #define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
 #define START_BIT      1
 #define STOP_BIT       0
 // ----------------------------------------------------------
-// ----------- PARITY BIT -----------------------------------
-#define PARITY         0           // 0 = even, 1 = odd
+// ----------- CRC ------------------------------------------
+typedef char crc;                       // Decides of the size of the crc
+#define POLYNOMIAL 0x31                 // The generator polynomial
+#define WIDTH  (8 * sizeof(crc))        // The crc's width (Don't change this)
+#define TOPBIT (1 << (WIDTH - 1))       // Leftmost bit (Don't change this)
 // ----------------------------------------------------------
 
-typedef char crc;
-
-#define WIDTH  (8 * sizeof(crc))
-#define TOPBIT (1 << (WIDTH - 1))
-#define POLYNOMIAL 0x31  /* 11011 followed by 0's */
-
-crc crcTable[256];
 
 //functions
 void receivePacket();
@@ -37,6 +37,7 @@ void error();
 //attributes
 volatile unsigned char temp;
 volatile unsigned long i = 0;
+crc crcTable[256];
 char buffer[BUFFER_SIZE];
 char packet[PACKET_SIZE];    //start bit + data bits + crc + stop bit
 crc checksum;
@@ -55,8 +56,8 @@ int USCI_A1_INT = 0;
  * 5. start the application specific code
  */
 
-int main(void)
-{
+int main(void) {
+
     WDTCTL = WDTPW+WDTHOLD;                   // Stop watchdog timer
 
     // SET CLOCK
@@ -64,7 +65,7 @@ int main(void)
     PMM_setVCore(PMM_CORE_LEVEL_3);                                            // Set VCore Up to level 3 to be able to run higher than 20 MHz
     UCS_initFLLSettle(CLOCK_FREQUENCY*2, CLOCK_FREQUENCY / 32768);             // Set clock source to selected frequency
 
-    smclk = UCS_getSMCLK();
+    smclk = UCS_getSMCLK();     //for test only
 
     P7DIR |= BIT7;
     P7SEL |= BIT7;                            // To see the clock output on P7.7
@@ -101,15 +102,16 @@ int main(void)
 
 
     // SET UART
-    P4SEL |= BIT4 + BIT5;               // P4.4 = TX  and  P4.5 = RX
-    UCA1CTL1 |= UCSWRST;                // Reset the UART state machine
-    UCA1CTL1 |= UCSSEL_2;               // SMCLK
-    UCA1BR0 = 69;
-    UCA1BR1 = 0;                        // Set baud rate to 115200 (User's guide)
-                                        // http://processors.wiki.ti.com/index.php?title=USCI_UART_Baud_Rate_Gen_Mode_Selection&oldid=122242
-    UCA1MCTL |= UCBRS_4 + UCBRF_0;      // Select the correct modulation
-    UCA1CTL1 &= ~UCSWRST;               // Start the UART state machine
-    UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
+    P4SEL |= BIT4 + BIT5;                           // P4.4 = TX  and  P4.5 = RX
+    UCA1CTL1 |= UCSWRST;                            // Reset the UART state machine
+    UCA1CTL1 |= UCSSEL_2;                           // SMCLK
+    double n = CLOCK_FREQUENCY / UART_BAUD_RATE;     // Variable used to calculate the next settings
+    UCA1BR0 = (int)(n);
+    UCA1BR1 = 0;                                    // Set baud rate
+    int modulation = round((n - (int)(n))*8);
+    UCA1MCTL |= modulation + UCBRF_0;               // Select the correct modulation
+    UCA1CTL1 &= ~UCSWRST;                           // Start the UART state machine
+    UCA1IE |= UCRXIE;                               // Enable USCI_A1 RX interrupts
 
 
     P2DIR &= ~BIT0;     //input pin
@@ -150,11 +152,10 @@ int main(void)
 __interrupt void Port_2(void)
 {
     if (ready == 1) {
-        TA0R = TIMER_COUNTER / 2;
         ready = 0;
         __bic_SR_register_on_exit(LPM0_bits);
     }
-
+    TA0R = TIMER_COUNTER / 2;       // Adjust timer to middle of bit
     P2IFG &= (~BIT0); // P2.0 IFG clear
 }
 
@@ -312,5 +313,3 @@ void error() {
             UCA1TXBUF = error[i];
         }
 }
-
-

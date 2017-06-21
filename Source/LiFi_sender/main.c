@@ -1,24 +1,23 @@
 #include <msp430.h>
 #include "MSP430F5xx_6xx/driverlib.h"
+#include <math.h>
 
 // ----------- CLOCK ----------------------------------------
 #define CLOCK_FREQUENCY  8000000        // (hertz)
-#define TIMER_COUNTER    1600           // Number of clock cycles before every timer interrupt
+#define TIMER_COUNTER    8000           // Number of clock cycles before every timer interrupt
                                         // Here it also represents the baud rate of li-fi transmission (CLOCK_SPEED / TIMER_COUNTER)
+                                        // Can't go under 8000 for now
+// ----------------------------------------------------------
+// ----------- UART TRANSMISSION ----------------------------
+#define UART_BAUD_RATE      115200      // (bit/s) - the communication with the computer
 // ----------------------------------------------------------
 // ----------- SELECT BUFFER SIZE ---------------------------
 #define BUFFER_SIZE    32          // (bytes)
-#define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)
+#define PACKET_SIZE    1 + BUFFER_SIZE * 8 + sizeof(crc) * 8 + 1        // (bits)   (Don't change this)
 // ----------------------------------------------------------
 // ----------- SELECT START/STOP BITS -----------------------
 #define START_BIT      1
 #define STOP_BIT       0
-// ----------------------------------------------------------
-// ----------- PARITY BIT -----------------------------------
-#define PARITY         0           // 0 = even, 1 = odd
-// ----------------------------------------------------------
-// ----------- UART TRANSMISSION ----------------------------
-#define BAUD_RATE      115200      // (bit/s) - the communication with the computer
 // ----------------------------------------------------------
 // ----------- CRC ------------------------------------------
 typedef char crc;                       // Decides of the size of the crc
@@ -30,7 +29,7 @@ typedef char crc;                       // Decides of the size of the crc
 
 //functions
 void acquireData();
-void createPacket(char *buffer);
+void createPacket();
 void sendPacket();
 void crcInit(void);
 crc crcFast(char const message[], int nBytes);
@@ -58,8 +57,8 @@ int USCI_A1_INT = 0;
  * 5. start the application specific code
  */
 
-int main(void)
-{
+int main(void) {
+
     WDTCTL = WDTPW+WDTHOLD;                   // Stop watchdog timer
 
     // SET CLOCK
@@ -88,19 +87,21 @@ int main(void)
 
     // SET TIMER
     TA0CCTL0 = CCIE;                        // CCR0 interrupt enabled
-    TA0CCR0 = TIMER_COUNTER;                // Sample 5000 times per second
+    TA0CCR0 = TIMER_COUNTER;                // Sample every X cycles
     TA0CTL = TASSEL_2 + MC_1 + TACLR;
 
 
     // SET UART
-    P4SEL |= BIT4 + BIT5;               // P4.4 = TX  and  P4.5 = RX
-    UCA1CTL1 |= UCSWRST;                // Reset the UART state machine
-    UCA1CTL1 |= UCSSEL_2;               // SMCLK
-    UCA1BR0 = 69;
-    UCA1BR1 = 0;                        // Set baud rate to 115200 (User's guide)
-    UCA1MCTL |= UCBRS_4 + UCBRF_0;      // Select the correct modulation
-    UCA1CTL1 &= ~UCSWRST;               // Start the UART state machine
-    UCA1IE |= UCRXIE;                   // Enable USCI_A1 RX interrupts
+    P4SEL |= BIT4 + BIT5;                           // P4.4 = TX  and  P4.5 = RX
+    UCA1CTL1 |= UCSWRST;                            // Reset the UART state machine
+    UCA1CTL1 |= UCSSEL_2;                           // SMCLK
+    double n = CLOCK_FREQUENCY / UART_BAUD_RATE;     // Variable used to calculate the next settings
+    UCA1BR0 = (int)(n);
+    UCA1BR1 = 0;                                    // Set baud rate
+    int modulation = round((n - (int)(n))*8);
+    UCA1MCTL |= modulation + UCBRF_0;               // Select the correct modulation
+    UCA1CTL1 &= ~UCSWRST;                           // Start the UART state machine
+    UCA1IE |= UCRXIE;                               // Enable USCI_A1 RX interrupts
 
 
     P2DIR |= BIT0;              //Set output pin (P2.0)
@@ -120,8 +121,7 @@ int main(void)
         __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
         __no_operation();                         // For debugger
 
-        createPacket(buffer);
-        sendPacket(packet);
+        sendPacket();
 
         data_received = 0;
         buffer_pos = 0;
@@ -177,35 +177,36 @@ void acquireData() {
     //Data will eventually come from the sensor
 }
 
-void createPacket(char *buffer) {
-
-    packet[0] = START_BIT;
-    for (i = 0; i < BUFFER_SIZE * 8; i++) {
-        packet[i+1] = (buffer[(int)(i/8)] >> i%8) & 1;
-    }
-    crc checksum = crcFast(buffer, BUFFER_SIZE);
-    for (i = 0; i < sizeof(crc) * 8; i++) {
-        packet[i + BUFFER_SIZE*8 + 1] = (checksum >> i) & 1;
-    }
-    packet[PACKET_SIZE - 1] = STOP_BIT;
-}
-
 void sendPacket() {
 
     sending = 1;
 
-    long pos;
-    for (pos = 0; pos < PACKET_SIZE; pos++) {
+    // start bit
+    __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                              //always wait for the right time to acquire data
+    P2OUT = ~(0xFE | START_BIT);
+
+    // data bits
+    for (i = 0; i < BUFFER_SIZE * 8; i++) {
         __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
                                                   //always wait for the right time to acquire data
-        if (packet[pos] == 1) {
-            P2OUT &= ~BIT0;
-        }
-        else {
-            P2OUT |= BIT0;
-        }
+        P2OUT = ~(0xFE | ((buffer[(int)(i/8)] >> i%8) & 1));
     }
-    pos = 0;
+
+    // checksum
+    crc checksum = crcFast(buffer, BUFFER_SIZE);
+    for (i = 0; i < sizeof(crc) * 8; i++) {
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                  //always wait for the right time to acquire data
+        P2OUT = ~(0xFE | ((checksum >> i) & 1));
+    }
+
+
+    // start bit
+    __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                              //always wait for the right time to acquire data
+    P2OUT = ~(0xFE & STOP_BIT);
+
 
 /*
     char test = 0;
@@ -293,5 +294,4 @@ crc crcFast(char const message[], int nBytes)
     return (remainder);
 
 }   /* crcFast() */
-
 
