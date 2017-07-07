@@ -61,7 +61,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=0
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -106,18 +106,22 @@ GenerateClassCluster=0
 DocumentUniqueId=XMQMKPWC
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for Li-Fi_transmission\Li-Fi_transmission.nsx
+DocumentPath=Project Outputs for Li-Fi_transmission\Design Rule Check - LiFi_transmitter.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for Li-Fi_transmission\Li-Fi_transmission.sdf
+DocumentPath=Project Outputs for Li-Fi_transmission\Li-Fi_transmission.nsx
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=VLC_Components_Lib.csv
+DocumentPath=Project Outputs for Li-Fi_transmission\Li-Fi_transmission.sdf
 DItemRevisionGUID=
 
 [GeneratedDocument4]
+DocumentPath=VLC_Components_Lib.csv
+DItemRevisionGUID=
+
+[GeneratedDocument5]
 DocumentPath=VLC_Components_Lib.rep
 DItemRevisionGUID=
 

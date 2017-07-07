@@ -1,0 +1,6 @@
+Added Component: Designator=Q3(MMBTA06L)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=Vi Pin=Q3-1
+Added Pin To Net: NetName=NetLED1_1 Pin=Q3-2
+Added Pin To Net: NetName=VCC Pin=Q3-3
+Added Member To Class: ClassName=LiFi_transmitter Member=Component Q3 MMBTA06L
