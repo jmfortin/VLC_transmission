@@ -3,12 +3,12 @@
 #include <math.h>
 
 // ----------- CLOCK ----------------------------------------
-#define CLOCK_FREQUENCY  8000000        // (hertz)
-#define TIMER_COUNTER    8000           // Number of clock cycles before every timer interrupt
+#define CLOCK_FREQUENCY  24000000       // (hertz)
+#define TIMER_COUNTER    480            // Number of clock cycles before every timer interrupt
                                         // Here it also represents the baud rate of transmission (CLOCK_SPEED / TIMER_COUNTER)
 // ----------------------------------------------------------
 // ----------- UART TRANSMISSION ----------------------------
-#define UART_BAUD_RATE      115200      // (bit/s) - the communication with the computer
+#define UART_BAUD_RATE   115200      // (bit/s) - the communication with the computer
 // ----------------------------------------------------------
 // ----------- SELECT BUFFER SIZE ---------------------------
 #define BUFFER_SIZE    32               // (bytes)
@@ -19,7 +19,7 @@
 #define STOP_BIT       0
 // ----------------------------------------------------------
 // ----------- CRC ------------------------------------------
-typedef char crc;                       // Decides of the size of the crc
+typedef char crc;                   // Decides of the size of the crc (8 or 16 only)
 #define POLYNOMIAL 0x31                 // The generator polynomial
 #define WIDTH  (8 * sizeof(crc))        // The crc's width (Don't change this)
 #define TOPBIT (1 << (WIDTH - 1))       // Leftmost bit (Don't change this)
@@ -32,7 +32,7 @@ void retrieveData();
 void crcInit();
 void verifyData(char const message[]);
 void sendToComputer();
-void error();
+void printError();
 
 //attributes
 volatile unsigned char temp;
@@ -77,6 +77,7 @@ int main(void) {
     packet_error = 0;
 
     crcInit();
+    CRC_setSeed(CRC_BASE, 0x0000);
 
     ready = 1;
 
@@ -114,14 +115,12 @@ int main(void) {
     UCA1IE |= UCRXIE;                               // Enable USCI_A1 RX interrupts
 
 
-    P2DIR &= ~BIT0;     //input pin
-    P2REN |= BIT0;      //set pull-up resistor
-    P2OUT |= BIT0;
-    P2IE |= BIT0;       //enable interrupts for pin P2.0
-    P2IES &= ~BIT0;     //interrupt on rising edge
+    P2DIR &= ~BIT4;     //input pin (P2.4)
+    P2REN |= BIT4;      //set pull-up resistor
+    P2OUT &= ~BIT4;
+    P2IE |= BIT4;       //enable interrupts for pin P2.4
+    P2IES &= ~BIT4;     //interrupt on rising edge
 
-
-    __enable_interrupt();
 
     while(1) {
 
@@ -129,16 +128,13 @@ int main(void) {
         __no_operation();                         // For debugger
 
         receivePacket();
-        retrieveData();
-        verifyData(buffer);
 
         if (packet_error == 0) {
             sendToComputer();
         }
         else {
-            error();
+            printError();
         }
-
 
         packet_error = 0;
         ready = 1;
@@ -151,12 +147,12 @@ int main(void) {
 #pragma vector=PORT2_VECTOR
 __interrupt void Port_2(void)
 {
-    if (ready == 1) {
-        ready = 0;
+    if (receiving == 0) {
+        receiving = 1;
         __bic_SR_register_on_exit(LPM0_bits);
     }
     TA0R = TIMER_COUNTER / 2;       // Adjust timer to middle of bit
-    P2IFG &= (~BIT0); // P2.0 IFG clear
+    P2IFG &= (~BIT4); // P2.4 IFG clear
 }
 
 // Character received
@@ -187,14 +183,46 @@ __interrupt void TIMER0_A0_ISR(void)
 
 void receivePacket() {
 
-    receiving = 1;
+    CRC_setSeed(CRC_BASE, 0x0000);      // Reset CRC signature
 
-    long pos = 0;
-    while (pos < PACKET_SIZE) {
+    // start bit
+    __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                              //always wait for the right time to acquire data
+    if(((P2IN & BIT4) >> 4) != START_BIT) {
+        packet_error = 1;
+    }
+
+    // data bits
+    temp = 0;
+    for (i = 1; i < BUFFER_SIZE * 8 + 1; i++) {
         __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
                                                   //always wait for the right time to acquire data
-        packet[pos] = P2IN & BIT0;
-        pos++;
+        temp |= ((P2IN & BIT4) >> 4) << ((i-1) % 8);
+        if (i % 8 == 0) {
+            buffer[(i / 8) - 1] = temp;
+            CRC_set8BitData(CRC_BASE, temp);        // Calculate CRC for this byte
+            temp = 0;
+        }
+    }
+
+    // checksum
+    checksum = 0;
+    crc true_checksum = (crc)CRC_getResult(CRC_BASE);
+    for (i = 0; i < sizeof(crc) * 8; i++) {
+        __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                                  //always wait for the right time to acquire data
+        checksum |= ((P2IN & BIT4) >> 4) << i;
+    }
+    if(checksum != true_checksum){
+        packet_error = 1;
+    }
+
+
+    // stop bit
+    __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
+                                              //always wait for the right time to acquire data
+    if(((P2IN & BIT4) >> 4) != STOP_BIT) {
+        packet_error = 1;
     }
 
     receiving = 0;
@@ -306,7 +334,7 @@ void sendToComputer() {
     }
 }
 
-void error() {
+void printError() {
     char error[9] = "\n\rERROR\n\r";
     for (i = 0; i < 9; i++) {
             while(UCA1STAT & UCBUSY);

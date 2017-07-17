@@ -3,8 +3,8 @@
 #include <math.h>
 
 // ----------- CLOCK ----------------------------------------
-#define CLOCK_FREQUENCY  8000000        // (hertz)
-#define TIMER_COUNTER    8000           // Number of clock cycles before every timer interrupt
+#define CLOCK_FREQUENCY  24000000        // (hertz)
+#define TIMER_COUNTER    480           // Number of clock cycles before every timer interrupt
                                         // Here it also represents the baud rate of li-fi transmission (CLOCK_SPEED / TIMER_COUNTER)
                                         // Can't go under 8000 for now
 // ----------------------------------------------------------
@@ -20,7 +20,7 @@
 #define STOP_BIT       0
 // ----------------------------------------------------------
 // ----------- CRC ------------------------------------------
-typedef char crc;                       // Decides of the size of the crc
+typedef char crc;                   // Decides of the size of the crc (8 or 16 only)
 #define POLYNOMIAL 0x31                 // The generator polynomial
 #define WIDTH  (8 * sizeof(crc))        // The crc's width (Don't change this)
 #define TOPBIT (1 << (WIDTH - 1))       // Leftmost bit (Don't change this)
@@ -29,10 +29,9 @@ typedef char crc;                       // Decides of the size of the crc
 
 //functions
 void acquireData();
-void createPacket();
 void sendPacket();
 void crcInit(void);
-crc crcFast(char const message[], int nBytes);
+crc calculateChecksum(char const message[], int nBytes);
 
 
 //attributes
@@ -113,8 +112,10 @@ int main(void) {
     sending = 0;
 
     crcInit();
+    CRC_setSeed(CRC_BASE, 0x0000);
 
     __enable_interrupt();
+
 
     while(1) {
 
@@ -145,9 +146,11 @@ __interrupt void USCI_A1_ISR(void)
 
         UCA1TXBUF = UCA1RXBUF;
         buffer[buffer_pos] = UCA1RXBUF;
+        CRC_set8BitData(CRC_BASE, buffer[buffer_pos]);        // Calculate CRC for this byte
         buffer_pos++;
 
         if(buffer_pos == BUFFER_SIZE) {
+            UCA1IE &= ~UCRXIE;          // Disable USCI_A1 RX interrupts
             __bic_SR_register_on_exit(LPM0_bits);
         }
 
@@ -194,7 +197,7 @@ void sendPacket() {
     }
 
     // checksum
-    crc checksum = crcFast(buffer, BUFFER_SIZE);
+    crc checksum = (crc)CRC_getResult(CRC_BASE);
     for (i = 0; i < sizeof(crc) * 8; i++) {
         __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
                                                   //always wait for the right time to acquire data
@@ -202,11 +205,14 @@ void sendPacket() {
     }
 
 
-    // start bit
+    // stop bit
     __bis_SR_register(LPM0_bits + GIE);       // CPU off, enable interrupts
                                               //always wait for the right time to acquire data
     P2OUT = ~(0xFE & STOP_BIT);
 
+    CRC_setSeed(CRC_BASE, 0x0000);            // Reset CRC signature
+    UCA1IFG &= ~UCRXIFG;                      // Clear RX interrupt flag
+    UCA1IE |= UCRXIE;                         // Enable USCI_A1 RX interrupts
 
 /*
     char test = 0;
@@ -273,7 +279,7 @@ void crcInit(void)
 
 
 
-crc crcFast(char const message[], int nBytes)
+crc calculateChecksum(char const message[], int nBytes)
 {
     char data;
     crc remainder = 0;
@@ -293,5 +299,5 @@ crc crcFast(char const message[], int nBytes)
      */
     return (remainder);
 
-}   /* crcFast() */
+}
 
