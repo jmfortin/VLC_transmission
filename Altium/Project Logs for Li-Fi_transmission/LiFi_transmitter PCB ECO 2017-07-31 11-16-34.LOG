@@ -1,0 +1,31 @@
+Change Component Footprint: Designator=R1 Old Footprint=1608[0603] New Footprint=6-0805_N
+Change Component Footprint: Designator=R5 Old Footprint=1608[0603] New Footprint=6-0805_N
+Change Component Footprint: Designator=R6 Old Footprint=1608[0603] New Footprint=6-0805_N
+Change Component Footprint: Designator=R9 Old Footprint=1608[0603] New Footprint=6-0805_N
+Change Component Footprint: Designator=R10 Old Footprint=1608[0603] New Footprint=6-0805_N
+Change Component Footprint: Designator=Rf Old Footprint=1608[0603] New Footprint=6-0805_N
+Change Component Footprint: Designator=R3 Old Footprint=1608[0603] New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R4 Old Footprint=1608[0603] New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R7 Old Footprint=1608[0603] New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=R8 Old Footprint=1608[0603] New Footprint=AXIAL-0.3
+Change Component Footprint: Designator=C1 Old Footprint=1608[0603] New Footprint=RAD-0.3
+Change Component Footprint: Designator=C2 Old Footprint=1608[0603] New Footprint=RAD-0.3
+Change Component Footprint: Designator=C3 Old Footprint=1608[0603] New Footprint=RAD-0.3
+Change Component Footprint: Designator=Cf Old Footprint=1608[0603] New Footprint=RAD-0.3
+Change Component Footprint: Designator=U1 Old Footprint=LMV794 New Footprint=LTC6254
+Added Component: Designator=U2(LMV793)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=Vref2 Pin=U1-10
+Added Pin To Net: NetName=Vref2 Pin=U1-11
+Added Pin To Net: NetName=NetR9_1 Pin=U1-12
+Added Pin To Net: NetName=GND Pin=U1-13
+Added Pin To Net: NetName=NetR5_1 Pin=U1-14
+Added Pin To Net: NetName=Vref Pin=U1-15
+Added Pin To Net: NetName=Vref Pin=U1-16
+Added Pin To Net: NetName=NetCf_2 Pin=U2-1
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Pin To Net: NetName=Vref Pin=U2-3
+Added Pin To Net: NetName=NetCf_1 Pin=U2-4
+Added Pin To Net: NetName=VCC Pin=U2-5
+Added Member To Class: ClassName=LiFi_transmitter Member=Component R3 Res1
+Added Member To Class: ClassName=LiFi_transmitter Member=Component U2 LMH6629

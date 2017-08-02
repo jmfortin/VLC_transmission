@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=VCC Pin=R9-2
+Removed Member From Class: ClassName=LiFi_transmitter Member=R9
+Added Pin To Net: NetName=NetR10_2 Pin=R10-2
+Added Pin To Net: NetName=NetR10_2 Pin=U1-12
+Added Net: Name=NetR10_2
