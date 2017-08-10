@@ -1,0 +1,16 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [Free Documents]
+   Generated File[LiFi_2.GTL]
+   Generated File[LiFi_2.GBL]
+   Generated File[LiFi_2.GKO]
+   Generated File[LiFi_2.GM1]
+   Generated File[LiFi_2.RUL]
+   Generated File[LiFi_2.EXTREP]
+   Generated File[LiFi_2.REP]
+
+
+Files Generated   : 7
+Documents Printed : 0
+
+Finished Output Generation At 11:06:19 On 2017-08-10

@@ -1,0 +1,249 @@
+*************************************************************
+FileName = LiFi_transmitter.GBR
+AutoAperture = True
+*************************************************************
+Generating : Top Layer
+      File : LiFi_transmitter.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : LiFi_transmitter.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : LiFi_transmitter.GPB
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D18
+    D19
+    D21
+    D22
+    D23
+    D24
+*************************************************************
+
+*************************************************************
+Generating : Top Pad Master
+      File : LiFi_transmitter.GPT
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D18
+    D19
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : LiFi_transmitter.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D17
+    D25
+    D26
+    D27
+    D28
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : LiFi_transmitter.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : LiFi_transmitter.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : LiFi_transmitter.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D29
+    D30
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : LiFi_transmitter.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D10
+    D11
+    D21
+    D22
+    D23
+    D24
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : LiFi_transmitter.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+    D25
+    D27
+    D28
+*************************************************************
+
+*************************************************************
+Generating : Keep-Out Layer
+      File : LiFi_transmitter.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+
+Used DCodes :
+    D17
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 1
+      File : LiFi_transmitter.GM1
+
+    Adding Layer      : Mechanical 1
+
+
+Used DCodes :
+    D17
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 13
+      File : LiFi_transmitter.GM13
+
+    Adding Layer      : Mechanical 13
+
+
+Used DCodes :
+    D25
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 15
+      File : LiFi_transmitter.GM15
+
+    Adding Layer      : Mechanical 15
+
+
+Used DCodes :
+    D25
+*************************************************************
+
